@@ -7,9 +7,7 @@ import {
 import {tasksApi, TaskType, UpdateTaskModelType} from "../../../api/tasks-api";
 import {Dispatch} from "redux";
 import {AppRootStateType} from "../../../App/store";
-import {
-    setAppStatusAC
-} from "../../../App/app-reducer";
+import {setAppStatusAC} from "../../../App/app-reducer";
 import {handleServerAppError, handleServerNetworkError} from "../../../utils/error-utils";
 import {createSlice, PayloadAction} from "@reduxjs/toolkit";
 
@@ -19,8 +17,8 @@ const slice = createSlice({
     name: 'tasks',
     initialState,
     reducers: {
-        addTaskAC(state, action: PayloadAction<{ task: TaskType }>) {
-            state[action.payload.task.todoListId].unshift(action.payload.task)
+        addTaskAC(state, action: PayloadAction<TaskType>) {
+            state[action.payload.todoListId].unshift(action.payload)
         },
         removeTaskAC(state, action: PayloadAction<{ todolistId: string, taskId: string }>) {
             const index = state[action.payload.todolistId].findIndex(t => t.id === action.payload.taskId)
@@ -91,7 +89,7 @@ export const addTaskTC = (todolistId: string, title: string) => (dispatch: Dispa
     tasksApi.createTask(todolistId, title)
         .then(res => {
             if (res.data.resultCode === 0) {
-                dispatch(addTaskAC({task: res.data.data.item}))
+                dispatch(addTaskAC(res.data.data.item))
                 dispatch(setAppStatusAC({status: 'succeeded'}))
             } else {
                 handleServerAppError(res.data, dispatch)

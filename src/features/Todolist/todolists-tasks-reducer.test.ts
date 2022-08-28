@@ -13,7 +13,7 @@ test('property with todolistId should be added', () => {
     const newTodolist = {id: '2', order: 1, title: 'NEW', addedDate: '', filter: "all"}
 
 
-    const action = addTodolistAC(newTodolist)
+    const action = addTodolistAC({todolist: newTodolist})
     const endTasksState = tasksReducer(startTaskState, action)
     const endTodolistsState = todolistsReducer(startTodolistState, action)
 
@@ -21,8 +21,8 @@ test('property with todolistId should be added', () => {
     const idFromTasks = keys[0]
     const idFromTodolists = endTodolistsState[0].id
 
-    expect(idFromTasks).toBe(action.todolist.id)
-    expect(idFromTodolists).toBe(action.todolist.id)
+    expect(idFromTasks).toBe(action.payload.todolist.id)
+    expect(idFromTodolists).toBe(action.payload.todolist.id)
 })
 
 test('property with todolistId should be deleted', () => {
@@ -57,7 +57,7 @@ test('property with todolistId should be deleted', () => {
         ]
     }
 
-    const action = removeTodolistAC('todolistId1')
+    const action = removeTodolistAC({todolistId: 'todolistId1'})
     const endState = tasksReducer(startState, action)
 
     const keys = Object.keys(endState)

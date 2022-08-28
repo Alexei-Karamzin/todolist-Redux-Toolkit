@@ -62,7 +62,7 @@ test('correct task should be added', ()=>{
 
 test('correct task should be removed', ()=>{
 
-    const endState = tasksReducer(startState, removeTaskAC(todolistId1,'1'))
+    const endState = tasksReducer(startState, removeTaskAC({taskId: '1', todolistId: todolistId1}))
 
     expect(endState[todolistId1].length).toBe(1)
     expect(endState[todolistId2].length).toBe(2)
@@ -71,7 +71,7 @@ test('correct task should be removed', ()=>{
 
 test('correct task should be change status', ()=>{
 
-    const endState = tasksReducer(startState, updateTaskAC('2', {status: TaskStatuses.Completed}, todolistId1))
+    const endState = tasksReducer(startState, updateTaskAC({taskId: '2', todolistId: todolistId1, model: {status: TaskStatuses.Completed}}))
 
     expect(endState[todolistId1].length).toBe(2)
     expect(endState[todolistId1][0].status).toBe(TaskStatuses.InProgress)
@@ -80,7 +80,7 @@ test('correct task should be change status', ()=>{
 
 test('correct task should be change title', ()=>{
 
-    const endState = tasksReducer(startState, updateTaskAC('1', {title: 'new title'}, todolistId1))
+    const endState = tasksReducer(startState, updateTaskAC({taskId: '1', todolistId: todolistId1, model: {title: 'new title'}}))
 
     expect(endState[todolistId1].length).toBe(2)
     expect(endState[todolistId2][0].title).toBe('test 1')
@@ -94,7 +94,7 @@ test('empty arrays should be added when we set todolists', ()=>{
         {id: '2', title: 'HTML&CSS', addedDate: '', order: 0}
     ]
 
-    const endState = tasksReducer({}, setTodolistAC(todolists))
+    const endState = tasksReducer({}, setTodolistAC({todolists: todolists}))
 
     const keys = Object.keys(endState)
 
@@ -111,7 +111,7 @@ test('tasks should be added for todolists', ()=>{
     }
     const tasks = startState[todolistId1]
 
-    const endState = tasksReducer(emptyTodolists, setTaskAC(tasks, todolistId1))
+    const endState = tasksReducer(emptyTodolists, setTaskAC({tasks, todolistId: todolistId1}))
 
     expect(endState[todolistId1].length).toBe(2)
 })
