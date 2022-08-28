@@ -5,14 +5,14 @@ import {Dispatch} from "redux";
 
 export const handleServerAppError = <D>(data: ResponseType<D>, dispatch: Dispatch) => {
     if (data.messages.length) {
-        dispatch(setAppErrorAC(data.messages[0]))
+        dispatch(setAppErrorAC({error: data.messages[0]}))
     } else {
-        dispatch(setAppErrorAC('ERROR'))
+        dispatch(setAppErrorAC({error: 'ERROR'}))
     }
-    dispatch(setAppStatusAC('failed'))
+    dispatch(setAppStatusAC({status: 'failed'}))
 }
 
 export const handleServerNetworkError = (err: {message: string}, dispatch: Dispatch) => {
-    dispatch(setAppErrorAC(err.message ? err.message : 'ERROR'))
-    dispatch(setAppStatusAC('failed'))
+    dispatch(setAppErrorAC({error: err.message ? err.message : 'ERROR'}))
+    dispatch(setAppStatusAC({status: 'failed'}))
 }
