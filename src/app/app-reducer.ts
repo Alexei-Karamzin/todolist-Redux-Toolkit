@@ -12,6 +12,7 @@ const initialState = {
     isInitialized: false
 }
 
+
 const slice = createSlice({
     name: 'app',
     initialState,
@@ -48,6 +49,6 @@ export const initializeAppTC = () => (dispatch: Dispatch) => {
 // types
 
 export type RequestStatusType = 'idle' | 'loading' | 'succeeded' | 'failed'
-export type SetAppErrorActionType = ReturnType<typeof setAppErrorAC>;
-export type SetAppStatusActionType = ReturnType<typeof setAppStatusAC>;
+export type SetAppStatusActionType = ReturnType<typeof setAppStatusAC>
+export type InitialStateType = typeof initialState
 
