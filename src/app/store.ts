@@ -14,17 +14,18 @@ export const rootReducer = combineReducers({
     auth: authReducer
 })
 
-export type AppRootStateType = ReturnType<typeof rootReducer>
-
-//export const store = createStore(rootReducer, applyMiddleware(thunk))
 export const store = configureStore({
     reducer: rootReducer,
     middleware: getDefaultMiddleware => getDefaultMiddleware().prepend(thunk)
 })
 
-type AppDispatchType = ThunkDispatch<AppRootStateType, void, AnyAction>
 export const useAppDispatch = () => useDispatch<AppDispatchType>()
 
+// types
+
+type AppDispatchType = ThunkDispatch<AppRootStateType, void, AnyAction>
+export type RootReducerType = typeof rootReducer
+export type AppRootStateType = ReturnType<typeof rootReducer>
 
 // @ts-ignore
 window.store = store

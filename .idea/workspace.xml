@@ -4,12 +4,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d3e7a3b1-9a85-4a8a-aea6-ba6718104b1d" name="Changes" comment="create slice for all reducers, redux toolkit">
+    <list default="true" id="d3e7a3b1-9a85-4a8a-aea6-ba6718104b1d" name="Changes" comment="fix reducers tests">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/features/Todolist/Task/tasks-reducer.test.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/features/Todolist/Task/tasks-reducer.test.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/App.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/App.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/ReduxStoreProviderDecorator.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/ReduxStoreProviderDecorator.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/store.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/store.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/features/Todolist/Task/tasks-reducer.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/features/Todolist/Task/tasks-reducer.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/features/Todolist/todolists-reducer.test.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/features/Todolist/todolists-reducer.test.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/features/Todolist/todolists-tasks-reducer.test.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/features/Todolist/todolists-tasks-reducer.test.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/input.tsx" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -42,32 +44,6 @@
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RunManager" selected="Jest.property with todolistId should be deleted">
-    <configuration name="correct entity status should be changed" type="JavaScriptTestRunnerJest" temporary="true" nameIsGenerated="true">
-      <node-interpreter value="project" />
-      <node-options value="" />
-      <jest-package value="$PROJECT_DIR$/node_modules/react-scripts" />
-      <working-dir value="$PROJECT_DIR$" />
-      <envs />
-      <scope-kind value="TEST" />
-      <test-file value="$PROJECT_DIR$/src/features/Todolist/todolists-reducer.test.ts" />
-      <test-names>
-        <test-name value="correct entity status should be changed" />
-      </test-names>
-      <method v="2" />
-    </configuration>
-    <configuration name="correct todolist should be set to the state" type="JavaScriptTestRunnerJest" temporary="true" nameIsGenerated="true">
-      <node-interpreter value="project" />
-      <node-options value="" />
-      <jest-package value="$PROJECT_DIR$/node_modules/react-scripts" />
-      <working-dir value="$PROJECT_DIR$" />
-      <envs />
-      <scope-kind value="TEST" />
-      <test-file value="$PROJECT_DIR$/src/features/Todolist/todolists-reducer.test.ts" />
-      <test-names>
-        <test-name value="correct todolist should be set to the state" />
-      </test-names>
-      <method v="2" />
-    </configuration>
     <configuration name="property with todolistId should be added" type="JavaScriptTestRunnerJest" temporary="true" nameIsGenerated="true">
       <node-interpreter value="project" />
       <node-options value="" />
@@ -94,6 +70,26 @@
       </test-names>
       <method v="2" />
     </configuration>
+    <configuration name="start" type="js.build_tools.npm" temporary="true" nameIsGenerated="true">
+      <package-json value="$PROJECT_DIR$/package.json" />
+      <command value="run" />
+      <scripts>
+        <script value="start" />
+      </scripts>
+      <node-interpreter value="project" />
+      <envs />
+      <method v="2" />
+    </configuration>
+    <configuration name="storybook" type="js.build_tools.npm" temporary="true" nameIsGenerated="true">
+      <package-json value="$PROJECT_DIR$/package.json" />
+      <command value="run" />
+      <scripts>
+        <script value="storybook" />
+      </scripts>
+      <node-interpreter value="project" />
+      <envs />
+      <method v="2" />
+    </configuration>
     <configuration name="test" type="js.build_tools.npm" temporary="true" nameIsGenerated="true">
       <package-json value="$PROJECT_DIR$/package.json" />
       <command value="run" />
@@ -106,11 +102,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="npm.start" />
+        <item itemvalue="npm.test" />
+        <item itemvalue="npm.storybook" />
         <item itemvalue="Jest.property with todolistId should be deleted" />
         <item itemvalue="Jest.property with todolistId should be added" />
-        <item itemvalue="npm.test" />
-        <item itemvalue="Jest.correct entity status should be changed" />
-        <item itemvalue="Jest.correct todolist should be set to the state" />
       </list>
     </recent_temporary>
   </component>
@@ -126,7 +122,10 @@
       <workItem from="1661588380055" duration="371000" />
       <workItem from="1661588820943" duration="608000" />
       <workItem from="1661629865424" duration="13228000" />
-      <workItem from="1661682066320" duration="1126000" />
+      <workItem from="1661682066320" duration="2023000" />
+      <workItem from="1661684223258" duration="1013000" />
+      <workItem from="1661707231642" duration="3529000" />
+      <workItem from="1661876252231" duration="3359000" />
     </task>
     <task id="LOCAL-00001" summary="create slice for all reducers, redux toolkit">
       <created>1661674389587</created>
@@ -135,7 +134,21 @@
       <option name="project" value="LOCAL" />
       <updated>1661674389587</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="fix reducers tests">
+      <created>1661683285409</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1661683285409</updated>
+    </task>
+    <task id="LOCAL-00003" summary="fix reducers tests">
+      <created>1661683377325</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1661683377326</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -155,6 +168,7 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="create slice, redux toolkit" />
     <MESSAGE value="create slice for all reducers, redux toolkit" />
-    <option name="LAST_COMMIT_MESSAGE" value="create slice for all reducers, redux toolkit" />
+    <MESSAGE value="fix reducers tests" />
+    <option name="LAST_COMMIT_MESSAGE" value="fix reducers tests" />
   </component>
 </project>
