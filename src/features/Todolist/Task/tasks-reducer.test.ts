@@ -1,6 +1,6 @@
 import {v1} from "uuid";
 import {TaskStateType} from "../../../App/App";
-import {addTaskAC, updateTaskAC, removeTaskAC, setTaskAC, tasksReducer} from "./tasks-reducer";
+import {addTaskAC, updateTaskAC, tasksReducer, fetchTasksTC, removeTasksTC} from "./tasks-reducer";
 import {TaskPriority, TaskStatuses} from "../../../api/tasks-api";
 import {setTodolistAC} from "../todolists-reducer";
 import {TodolistType} from "../../../api/todolists-api";
@@ -62,7 +62,10 @@ test('correct task should be added', ()=>{
 
 test('correct task should be removed', ()=>{
 
-    const endState = tasksReducer(startState, removeTaskAC({taskId: '1', todolistId: todolistId1}))
+    const param = {todolistId: todolistId1, taskId: '1'};
+    const action = removeTasksTC.fulfilled(param, '', param)
+
+    const endState = tasksReducer(startState, action)
 
     expect(endState[todolistId1].length).toBe(1)
     expect(endState[todolistId2].length).toBe(2)
@@ -111,7 +114,9 @@ test('tasks should be added for todolists', ()=>{
     }
     const tasks = startState[todolistId1]
 
-    const endState = tasksReducer(emptyTodolists, setTaskAC({tasks, todolistId: todolistId1}))
+    const action = fetchTasksTC.fulfilled({tasks: tasks, todolistId: todolistId1}, '', todolistId1)
+
+    const endState = tasksReducer(emptyTodolists, action)
 
     expect(endState[todolistId1].length).toBe(2)
 })

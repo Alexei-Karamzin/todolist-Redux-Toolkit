@@ -56,7 +56,7 @@ export const TodolistsList = ({demo = false}: PropsType) => {
     }, [dispatch])
 
     const removeTask = useCallback((todolistId: string, taskId: string) => {
-        dispatch(removeTasksTC(todolistId, taskId))
+        dispatch(removeTasksTC({taskId, todolistId}))
     }, [dispatch])
 
     const changeTaskStatus = useCallback((taskId: string, status: TaskStatuses, todolistId: string) => {

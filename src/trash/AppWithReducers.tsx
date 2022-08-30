@@ -12,7 +12,7 @@ import {
     removeTodolistAC,
     todolistsReducer
 } from "../features/Todolist/todolists-reducer";
-import {addTaskAC, updateTaskAC, removeTaskAC, tasksReducer} from "../features/Todolist/Task/tasks-reducer";
+import {addTaskAC, updateTaskAC, tasksReducer} from "../features/Todolist/Task/tasks-reducer";
 
 /*export type FilterValueType = 'all' | 'completed' | 'active'*/
 
