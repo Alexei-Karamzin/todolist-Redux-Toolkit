@@ -1,4 +1,5 @@
 import axios from "axios";
+import {ResponseType} from "./todolists-api";
 
 const settings = {
     withCredentials: true,
@@ -34,9 +35,3 @@ export const authApi = {
 }
 
 // types
-
-export type ResponseType<D = {}> = {
-    resultCode: number,
-    messages: string[],
-    data: D
-}
