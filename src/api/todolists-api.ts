@@ -40,6 +40,10 @@ export type TodolistType = {
 export type ResponseType<D = {}> = {
     resultCode: number,
     messages: string[],
-    fieldErrors?: Array<{field: string, error: string}>
+    fieldsErrors?: Array<FieldErrorType>
     data: D
+}
+export type FieldErrorType = {
+    field: string,
+    error: string
 }
