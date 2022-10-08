@@ -64,7 +64,7 @@ export const TodolistsList = ({demo = false}: PropsType) => {
     }, [dispatch])
 
     const addTask = useCallback((title: string, todolistId: string) => {
-        dispatch(addTaskTC(todolistId, title))
+        dispatch(addTaskTC({todolistId, title}))
     }, [dispatch])
 
     if(!isLoggedIn) {

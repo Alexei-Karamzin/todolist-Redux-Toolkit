@@ -1,6 +1,6 @@
 import {v1} from "uuid";
 import {TaskStateType} from "../../../App/App";
-import {addTaskAC, updateTaskAC, tasksReducer, fetchTasksTC, removeTasksTC} from "./tasks-reducer";
+import {updateTaskAC, tasksReducer, fetchTasksTC, removeTasksTC, addTaskTC} from "./tasks-reducer";
 import {TaskPriority, TaskStatuses} from "../../../api/tasks-api";
 import {setTodolistAC} from "../todolists-reducer";
 import {TodolistType} from "../../../api/todolists-api";
@@ -51,8 +51,9 @@ test('correct task should be added', ()=>{
         order: 0, status: 1, priority: TaskPriority.Low,
         startDate: '', deadline: '', addedDate: ''
     }
+    const action = addTaskTC.fulfilled(newTask, 'requestId', {title: newTask.title, todolistId: newTask.todoListId})
 
-    const endState = tasksReducer(startState, addTaskAC(newTask))
+    const endState = tasksReducer(startState, action)
 
     expect(endState[todolistId1].length).toBe(3)
     expect(endState[todolistId2].length).toBe(2)
