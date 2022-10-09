@@ -52,7 +52,7 @@ export const TodolistsList = ({demo = false}: PropsType) => {
     }, [dispatch])
 
     const changeTaskTitle = useCallback((todolistId: string, taskId: string, title: string) => {
-        dispatch(updateTaskTC({taskId, domainModel, todolistId}))/*taskId, {title}, todolistId*/
+        dispatch(updateTaskTC({taskId, domainModel: {title}, todolistId}))/*taskId, {title}, todolistId*/
     }, [dispatch])
 
     const removeTask = useCallback((todolistId: string, taskId: string) => {
@@ -60,7 +60,7 @@ export const TodolistsList = ({demo = false}: PropsType) => {
     }, [dispatch])
 
     const changeTaskStatus = useCallback((taskId: string, status: TaskStatuses, todolistId: string) => {
-        dispatch(updateTaskTC({taskId, domainModel, todolistId}))
+        dispatch(updateTaskTC({taskId, domainModel: {status}, todolistId}))
     }, [dispatch])
 
     const addTask = useCallback((title: string, todolistId: string) => {

@@ -6,7 +6,6 @@ import {
     removeTasksTC,
     addTaskTC,
     updateTaskTC,
-    changeTaskStatusTC
 } from "./tasks-reducer";
 import {TaskPriority, TaskStatuses} from "../../../api/tasks-api";
 import {setTodolistAC} from "../todolists-reducer";
