@@ -1,6 +1,13 @@
 import {v1} from "uuid";
 import {TaskStateType} from "../../../App/App";
-import {updateTaskAC, tasksReducer, fetchTasksTC, removeTasksTC, addTaskTC} from "./tasks-reducer";
+import {
+    tasksReducer,
+    fetchTasksTC,
+    removeTasksTC,
+    addTaskTC,
+    updateTaskTC,
+    changeTaskStatusTC
+} from "./tasks-reducer";
 import {TaskPriority, TaskStatuses} from "../../../api/tasks-api";
 import {setTodolistAC} from "../todolists-reducer";
 import {TodolistType} from "../../../api/todolists-api";
@@ -75,21 +82,22 @@ test('correct task should be removed', ()=>{
 
 test('correct task should be change status', ()=>{
 
-    const endState = tasksReducer(startState, updateTaskAC({taskId: '2', todolistId: todolistId1, model: {status: TaskStatuses.Completed}}))
+    const updateModel = {taskId: '2', todolistId: todolistId1, domainModel: {status: TaskStatuses.Completed}};
+    const endState = tasksReducer(startState, updateTaskTC.fulfilled(updateModel, 'requestId', updateModel))
 
     expect(endState[todolistId1].length).toBe(2)
     expect(endState[todolistId1][0].status).toBe(TaskStatuses.InProgress)
     expect(endState[todolistId1][1].status).toBe(TaskStatuses.Completed)
 })
 
-test('correct task should be change title', ()=>{
+/*test('correct task should be change title', ()=>{
 
     const endState = tasksReducer(startState, updateTaskAC({taskId: '1', todolistId: todolistId1, model: {title: 'new title'}}))
 
     expect(endState[todolistId1].length).toBe(2)
     expect(endState[todolistId2][0].title).toBe('test 1')
     expect(endState[todolistId1][0].title).toBe('new title')
-})
+})*/
 
 test('empty arrays should be added when we set todolists', ()=>{
 
