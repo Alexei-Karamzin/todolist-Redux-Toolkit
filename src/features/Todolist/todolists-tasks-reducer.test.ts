@@ -1,6 +1,6 @@
 import {TaskStateType} from "../../App/App";
 import {tasksReducer} from "./Task/tasks-reducer";
-import {addTodolistAC, removeTodolistTC, TodolistDomainType, todolistsReducer} from "./todolists-reducer";
+import {addTodolistTC, removeTodolistTC, TodolistDomainType, todolistsReducer} from "./todolists-reducer";
 import {v1} from "uuid";
 import {TaskPriority} from "../../api/tasks-api";
 
@@ -13,7 +13,7 @@ test('property with todolistId should be added', () => {
     const newTodolist = {id: '2', order: 1, title: 'NEW', addedDate: '', filter: "all"}
 
 
-    const action = addTodolistAC({todolist: newTodolist})
+    const action = addTodolistTC.fulfilled({todolist: newTodolist}, "requestId", "requestId")
     const endTasksState = tasksReducer(startTaskState, action)
     const endTodolistsState = todolistsReducer(startTodolistState, action)
 

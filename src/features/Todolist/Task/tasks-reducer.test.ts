@@ -89,14 +89,15 @@ test('correct task should be change status', ()=>{
     expect(endState[todolistId1][1].status).toBe(TaskStatuses.Completed)
 })
 
-/*test('correct task should be change title', ()=>{
+test('correct task should be change title', ()=>{
 
-    const endState = tasksReducer(startState, updateTaskAC({taskId: '1', todolistId: todolistId1, model: {title: 'new title'}}))
+    const updateModel = {taskId: '1', todolistId: todolistId1, domainModel: {title: 'new title'}};
+    const endState = tasksReducer(startState, updateTaskTC.fulfilled(updateModel, "requestId", updateModel))
 
     expect(endState[todolistId1].length).toBe(2)
     expect(endState[todolistId2][0].title).toBe('test 1')
     expect(endState[todolistId1][0].title).toBe('new title')
-})*/
+})
 
 test('empty arrays should be added when we set todolists', ()=>{
 
