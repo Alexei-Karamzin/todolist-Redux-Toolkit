@@ -8,7 +8,7 @@ import {
     updateTaskTC,
 } from "./tasks-reducer";
 import {TaskPriority, TaskStatuses} from "../../../api/tasks-api";
-import {setTodolistAC} from "../todolists-reducer";
+import {fetchTodolistsTC} from "../todolists-reducer";
 import {TodolistType} from "../../../api/todolists-api";
 
 let todolistId1: string
@@ -105,7 +105,7 @@ test('empty arrays should be added when we set todolists', ()=>{
         {id: '2', title: 'HTML&CSS', addedDate: '', order: 0}
     ]
 
-    const endState = tasksReducer({}, setTodolistAC({todolists: todolists}))
+    const endState = tasksReducer({}, fetchTodolistsTC.fulfilled({todolists: todolists}, "requestId"))
 
     const keys = Object.keys(endState)
 
