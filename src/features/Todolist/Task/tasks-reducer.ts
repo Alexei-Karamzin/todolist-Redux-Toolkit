@@ -1,6 +1,7 @@
 import {TaskStateType} from "../../../App/App";
 import {
-    addTodolistAC, fetchTodolistsTC, removeTodolistTC,
+    addTodolistTC,
+    fetchTodolistsTC, removeTodolistTC,
 } from "../todolists-reducer";
 import {tasksApi, UpdateTaskModelType} from "../../../api/tasks-api";
 import {AppRootStateType} from "../../../App/store";
@@ -24,10 +25,7 @@ export const removeTasksTC = createAsyncThunk('tasks/removeTasks', async (param:
     return {taskId: param.taskId, todolistId: param.todolistId}
 })
 
-export const addTaskTC = createAsyncThunk('tasks/addTask', async (param: { todolistId: string, title: string }, {
-    dispatch,
-    rejectWithValue
-}) => {
+export const addTaskTC = createAsyncThunk('tasks/addTask', async (param: { todolistId: string, title: string }, {dispatch,rejectWithValue}) => {
     dispatch(setAppStatusAC({status: 'loading'}))
     try {
         const res = await tasksApi.createTask(param.todolistId, param.title)
@@ -89,7 +87,7 @@ const slice = createSlice({
     initialState,
     reducers: {},
     extraReducers: (builder) => {
-        builder.addCase(addTodolistAC, (state, action) => {
+        builder.addCase(addTodolistTC.fulfilled, (state, action) => {
             state[action.payload.todolist.id] = []
         })
         builder.addCase(removeTodolistTC.fulfilled, (state, action) => {

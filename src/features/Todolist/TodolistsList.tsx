@@ -48,7 +48,7 @@ export const TodolistsList = ({demo = false}: PropsType) => {
     }, [dispatch])
 
     const changeTodolistTitle = useCallback((todolistId: string, title: string) => {
-        dispatch(changeTodolistTitleTC(todolistId, title))
+        dispatch(changeTodolistTitleTC({id: todolistId, title}))
     }, [dispatch])
 
     const changeTaskTitle = useCallback((todolistId: string, taskId: string, title: string) => {
