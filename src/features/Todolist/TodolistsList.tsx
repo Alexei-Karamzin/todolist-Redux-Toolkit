@@ -16,7 +16,6 @@ import {TodoList} from "./TodoList";
 import {FilterValueType, TaskStateType} from "../../App/App";
 import {Navigate} from "react-router-dom";
 import {selectIsLoggedIn} from "../Auth/selectors";
-import {addTaskTC, removeTasksTC, updateTaskTC} from "./Task/tasks-actions";
 import {tasksActions} from "./Task";
 
 type PropsType = {
