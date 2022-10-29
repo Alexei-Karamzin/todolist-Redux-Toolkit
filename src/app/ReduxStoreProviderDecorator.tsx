@@ -8,7 +8,7 @@ import { todolistsReducer } from '../features/Todolist/todolists-reducer'
 import {TaskPriority} from "../api/tasks-api";
 import {appReducer} from "./app-reducer";
 import thunk from "redux-thunk";
-import {authReducer} from "../features/Login/auth-reducer";
+import {authReducer} from "../features/Auth/auth-reducer";
 
 const rootReducer: RootReducerType = combineReducers({
     tasks: tasksReducer,

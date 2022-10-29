@@ -9,9 +9,10 @@ import TextField from '@mui/material/TextField';
 import Button from '@mui/material/Button';
 import {FormikHelpers, useFormik} from "formik";
 import {loginTC} from "./auth-reducer";
-import {AppRootStateType, useAppDispatch} from "../../App/store";
+import {useAppDispatch} from "../../App/store";
 import {useSelector} from "react-redux";
 import { Navigate } from 'react-router-dom';
+import {authSelectors} from "./index";
 
 type FormValuesTypes = {
     email: string
@@ -22,7 +23,7 @@ type FormValuesTypes = {
 export const Login = () => {
 
     const dispatch = useAppDispatch()
-    const isLoggedIn = useSelector<AppRootStateType>(state => state.auth.isLoggedIn)
+    const isLoggedIn = useSelector(authSelectors.selectIsLoggedIn)
 
     const formik = useFormik({
         validate: (values) => {

@@ -2,14 +2,15 @@ import {v1} from "uuid";
 import {TaskStateType} from "../../../App/App";
 import {
     tasksReducer,
-    fetchTasksTC,
-    removeTasksTC,
-    addTaskTC,
-    updateTaskTC,
+
+
+
+
 } from "./tasks-reducer";
 import {TaskPriority, TaskStatuses} from "../../../api/tasks-api";
 import {fetchTodolistsTC} from "../todolists-reducer";
 import {TodolistType} from "../../../api/todolists-api";
+import {addTaskTC, fetchTasksTC, removeTasksTC, updateTaskTC} from "./tasks-actions";
 
 let todolistId1: string
 let todolistId2: string
