@@ -19,13 +19,13 @@ export const TodolistsList = ({demo = false}: PropsType) => {
     const todolists = useSelector<AppRootStateType, Array<TodolistDomainType>>(state => state.todolists)
     const tasks = useSelector<AppRootStateType, TaskStateType>(state => state.tasks)
     const isLoggedIn = useSelector(selectIsLoggedIn)
-    const {fetchTodolistsTC, addTodolist} = useActions(todolistsActions)
+    const {fetchTodolists, addTodolist} = useActions(todolistsActions)
 
     useEffect(() => {
         if (demo || !isLoggedIn) {
             return
         }
-        fetchTodolistsTC()
+        fetchTodolists()
     }, [])
 
     if(!isLoggedIn) {
