@@ -1,8 +1,9 @@
 import {TaskStateType} from "../../App/App";
 import {tasksReducer} from "./Task/tasks-reducer";
-import {addTodolistTC, removeTodolistTC, TodolistDomainType, todolistsReducer} from "./todolists-reducer";
+import {TodolistDomainType, todolistsReducer} from "./todolists-reducer";
 import {v1} from "uuid";
 import {TaskPriority} from "../../api/tasks-api";
+import {addTodolist, removeTodolist} from "./todolists-actions";
 
 test('property with todolistId should be added', () => {
     const startTaskState: TaskStateType = {}
@@ -13,7 +14,7 @@ test('property with todolistId should be added', () => {
     const newTodolist = {id: '2', order: 1, title: 'NEW', addedDate: '', filter: "all"}
 
 
-    const action = addTodolistTC.fulfilled({todolist: newTodolist}, "requestId", "requestId")
+    const action = addTodolist.fulfilled({todolist: newTodolist}, "requestId", "requestId")
     const endTasksState = tasksReducer(startTaskState, action)
     const endTodolistsState = todolistsReducer(startTodolistState, action)
 
@@ -57,7 +58,7 @@ test('property with todolistId should be deleted', () => {
         ]
     }
 
-    const action = removeTodolistTC.fulfilled({todolistId: 'todolistId1'}, "requestId", 'todolistId1')
+    const action = removeTodolist.fulfilled({todolistId: 'todolistId1'}, "requestId", 'todolistId1')
     const endState = tasksReducer(startState, action)
 
     const keys = Object.keys(endState)

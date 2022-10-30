@@ -4,26 +4,19 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d3e7a3b1-9a85-4a8a-aea6-ba6718104b1d" name="Changes" comment="fix reducers tests">
-      <change afterPath="$PROJECT_DIR$/src/app/index.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/app/selectors.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/features/Auth/index.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/features/Auth/selectors.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/features/Todolist/Task/index.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/features/Todolist/Task/tasks-actions.ts" afterDir="false" />
+    <list default="true" id="d3e7a3b1-9a85-4a8a-aea6-ba6718104b1d" name="Changes" comment="refactor">
+      <change afterPath="$PROJECT_DIR$/src/features/Todolist/todolists-actions.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/App.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/App.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/ReduxStoreProviderDecorator.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/ReduxStoreProviderDecorator.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/app-reducer.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/app-reducer.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/store.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/store.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/features/Login/Login.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/features/Auth/Login.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/features/Login/auth-reducer.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/features/Auth/auth-reducer.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/features/Todolist/Task/Task.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/features/Todolist/Task/Task.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/features/Todolist/Task/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/features/Todolist/index.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/features/Todolist/Task/tasks-actions.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/features/Todolist/Task/tasks-actions.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/features/Todolist/Task/tasks-reducer.test.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/features/Todolist/Task/tasks-reducer.test.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/features/Todolist/Task/tasks-reducer.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/features/Todolist/Task/tasks-reducer.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/features/Todolist/TodoList.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/features/Todolist/TodoList.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/features/Todolist/TodolistsList.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/features/Todolist/TodolistsList.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/features/Todolist/todolists-reducer.test.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/features/Todolist/todolists-reducer.test.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/features/Todolist/todolists-reducer.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/features/Todolist/todolists-reducer.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/features/Todolist/todolists-tasks-reducer.test.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/features/Todolist/todolists-tasks-reducer.test.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -34,6 +27,7 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="TypeScript File" />
+        <option value="TypeScript JSX File" />
       </list>
     </option>
   </component>
@@ -73,9 +67,11 @@
   </component>
   <component name="RecentsManager">
     <key name="es6.move.members.recent.items">
+      <recent name="D:\IT-INCUBATOR\projects\todolist-ts-my-project\todolist-ts-toolkit\src\features\Todolist\todolists-actions.ts" />
       <recent name="D:\IT-INCUBATOR\projects\todolist-ts-my-project\todolist-ts-toolkit\src\features\Todolist\Task\tasks-actions.ts" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\IT-INCUBATOR\projects\todolist-ts-my-project\todolist-ts-toolkit\src\features\Todolist" />
       <recent name="D:\IT-INCUBATOR\projects\todolist-ts-my-project\todolist-ts-toolkit\src\features\Todolist\Task" />
     </key>
   </component>
@@ -173,7 +169,8 @@
       <workItem from="1665683442631" duration="5233000" />
       <workItem from="1666639434072" duration="23000" />
       <workItem from="1666640887068" duration="842000" />
-      <workItem from="1666726770188" duration="5312000" />
+      <workItem from="1666726770188" duration="7430000" />
+      <workItem from="1667119999475" duration="2738000" />
     </task>
     <task id="LOCAL-00001" summary="create slice for all reducers, redux toolkit">
       <created>1661674389587</created>
@@ -273,7 +270,21 @@
       <option name="project" value="LOCAL" />
       <updated>1665688754406</updated>
     </task>
-    <option name="localTasksCounter" value="15" />
+    <task id="LOCAL-00015" summary="refactor">
+      <created>1667056320671</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1667056320671</updated>
+    </task>
+    <task id="LOCAL-00016" summary="refactor">
+      <created>1667056372732</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1667056372732</updated>
+    </task>
+    <option name="localTasksCounter" value="17" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -304,6 +315,7 @@
     <MESSAGE value="create async thunk" />
     <MESSAGE value="create async thunk, fix err" />
     <MESSAGE value="fix reducers tests" />
-    <option name="LAST_COMMIT_MESSAGE" value="fix reducers tests" />
+    <MESSAGE value="refactor" />
+    <option name="LAST_COMMIT_MESSAGE" value="refactor" />
   </component>
 </project>
