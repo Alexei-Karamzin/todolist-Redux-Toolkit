@@ -6,10 +6,10 @@ import IconButton from '@mui/material/IconButton';
 import {Button} from "@mui/material";
 import {Task} from "./Task/Task";
 import {TaskStatuses, TaskType} from "../../api/tasks-api";
-import {useActions, useAppDispatch} from "../../App/store";
+import {useActions} from "../../App/store";
 import {TodolistDomainType} from "./todolists-reducer";
-import {fetchTasks} from "./Task/tasks-actions";
 import {tasksActions, todolistsActions} from "./index";
+import {FilterValueType} from "../../App/App";
 
 type TodolistPropsType = {
     todolist: TodolistDomainType
@@ -19,28 +19,14 @@ type TodolistPropsType = {
 
 export const TodoList = React.memo(({demo = false, ...props}: TodolistPropsType) => {
 
-    const dispatch = useAppDispatch()
-
     const {changeTodolistFilter, removeTodolist, changeTodolistTitle} = useActions(todolistsActions)
-    const {addTask, updateTask, removeTask} = useActions(tasksActions)
+    const {addTask, fetchTasks} = useActions(tasksActions)
 
     useEffect(() => {
         if (demo) {
             return
         }
-        dispatch(fetchTasks(props.todolist.id))
-    }, [])
-
-    /*const onChangeCheckboxHandler = useCallback((taskId: string, status: TaskStatuses, todolistId: string) => {
-        props.changeStatus(taskId, status, todolistId)
-    }, [props.changeStatus])*/
-
-    const changeTaskTitle = useCallback((todolistId: string, taskId: string, title: string) => {
-        updateTask({taskId, domainModel: {title}, todolistId})/*taskId, {title}, todolistId*/
-    }, [])
-
-    const changeTaskStatus = useCallback((taskId: string, status: TaskStatuses, todolistId: string) => {
-        updateTask({taskId, domainModel: {status}, todolistId})
+        fetchTasks(props.todolist.id)
     }, [])
 
     const removeTodolistHandler = (todolistId: string) => {
@@ -63,6 +49,17 @@ export const TodoList = React.memo(({demo = false, ...props}: TodolistPropsType)
         taskForTodolist = props.tasks.filter(task => task.status === TaskStatuses.New)
     }
 
+    const renderFilterButton = (buttonFilter: FilterValueType,
+                                color: 'inherit' | 'primary' | 'secondary' | 'success' | 'error' | 'info' | 'warning',
+                                text: string) => {
+        return <Button
+            color={color}
+            variant={props.todolist.filter === buttonFilter ? "contained" : "outlined"}
+            onClick={() => changeTodolistFilter({todolistId: props.todolist.id, value: buttonFilter})}
+        >{text}
+        </Button>
+    }
+
     return (
         <div>
             <h3>
@@ -80,36 +77,17 @@ export const TodoList = React.memo(({demo = false, ...props}: TodolistPropsType)
                     taskForTodolist.map((el) => <Task
                         key={el.id}
                         task={el}
-                        removeTask={removeTask}
                         todolistId={props.todolist.id}
-                        changeTaskTitle={changeTaskTitle}
-                        changeTaskStatus={changeTaskStatus}
                     />)
                 }
             </div>
             <div>
-                <Button
-                    color={"secondary"}
-                    variant={props.todolist.filter === "all" ? "contained" : "outlined"}
-                    onClick={() => changeTodolistFilter({todolistId: props.todolist.id, value: "all"})}
-                >All
-                </Button>
-                <Button
-                    color={"success"}
-                    variant={props.todolist.filter === "active" ? "contained" : "outlined"}
-                    onClick={() => changeTodolistFilter({todolistId: props.todolist.id, value: "active"})}
-                >Active
-                </Button>
-                <Button
-                    color={"error"}
-                    variant={props.todolist.filter === "completed" ? "contained" : "outlined"}
-                    onClick={() => changeTodolistFilter({todolistId: props.todolist.id, value: "completed"})}
-                >Completed
-                </Button>
+                {renderFilterButton("all", "secondary", 'All')}
+                {renderFilterButton("active", "success", 'Active')}
+                {renderFilterButton("completed", "error", 'Completed')}
             </div>
         </div>
     )
 })
-
 
 // react-scripts --openssl-legacy-provider start

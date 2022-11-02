@@ -2,7 +2,7 @@ import {authApi} from "../api/auth-api";
 import {setIsLoggedInAC} from "../features/Auth/auth-reducer";
 import {createAsyncThunk, createSlice, PayloadAction} from "@reduxjs/toolkit";
 
-export const initializeAppTC = createAsyncThunk('app/initializeApp', async (param, {dispatch}) => {
+export const initializeApp = createAsyncThunk('app/initializeApp', async (param, {dispatch}) => {
     const res = await authApi.me()
     if (res.data.resultCode === 0) {
         dispatch(setIsLoggedInAC({value: true}))
@@ -10,6 +10,10 @@ export const initializeAppTC = createAsyncThunk('app/initializeApp', async (para
 
     }
 })
+
+export const asyncActions = {
+    initializeApp
+}
 
 const slice = createSlice({
     name: 'app',
@@ -30,7 +34,7 @@ const slice = createSlice({
         }
     },
     extraReducers: builder => {
-        builder.addCase(initializeAppTC.fulfilled, (state) => {
+        builder.addCase(initializeApp.fulfilled, (state) => {
             state.isInitialized = true
         })
     }

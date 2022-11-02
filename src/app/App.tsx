@@ -3,15 +3,15 @@ import './App.css';
 import {AppBar, Button, CircularProgress, Container, IconButton, Toolbar, Typography} from '@mui/material';
 import MenuIcon from '@mui/icons-material/Menu';
 import {TaskType} from "../api/tasks-api";
-import {TodolistsList} from "../features/Todolist/TodolistsList";
+import {TodolistsList} from "../features/Todolist";
 import LinearProgress from '@mui/material/LinearProgress';
 import {ErrorSnackbar} from "../component/ErrorSnackbar/ErrorSnackbar";
 import {useSelector} from "react-redux";
 import {useAppDispatch} from "./store";
-import {initializeAppTC} from "./app-reducer";
+import {asyncActions} from "./app-reducer";
 import {Route, Routes} from "react-router-dom";
-import {Login} from '../features/Auth/Login';
-import {logoutTC} from "../features/Auth/auth-reducer";
+import {Login} from '../features/Auth';
+import {logout} from "../features/Auth/auth-reducer";
 import {authSelectors} from "../features/Auth";
 import {appSelectors} from "./index";
 
@@ -34,7 +34,7 @@ export function App({demo = false}: PropsType) {
 
     useEffect(() => {
         if (!demo) {
-            dispatch(initializeAppTC())
+            dispatch(asyncActions.initializeApp())
         }
     }, [])
 
@@ -45,7 +45,7 @@ export function App({demo = false}: PropsType) {
     }
 
     const logoutHandler = () => {
-        dispatch(logoutTC())
+        dispatch(logout())
     }
 
     return (
