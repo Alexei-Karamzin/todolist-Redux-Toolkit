@@ -37,19 +37,18 @@ export const AddItemForm = React.memo(({addItem, disabled = false}: addItemFormP
     }
 
     return <div>
-        <TextField
-            disabled={disabled}
-            label={'text'}
-            value={title}
-            variant="outlined"
-            onKeyPress={onKeyPressHandler}
-            onChange={onChangeInputHandler}
-            error={!!error}
-            helperText={error}
+        <TextField disabled={disabled}
+                   label={'text'}
+                   value={title}
+                   variant="outlined"
+                   onKeyPress={onKeyPressHandler}
+                   onChange={onChangeInputHandler}
+                   error={!!error}
+                   helperText={error}
         />
 
-        <IconButton onClick={addTaskOnClickHandler} disabled={disabled}>
-            <AddBoxIcon />
+        <IconButton onClick={addTaskOnClickHandler} disabled={disabled} style={{marginLeft: '5px'}}>
+            <AddBoxIcon/>
         </IconButton>
     </div>
 })

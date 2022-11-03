@@ -38,7 +38,10 @@ export const Task = React.memo((props: TaskPropsType) => {
         taskId: props.task.id
     }), [props.todolistId, props.task.id])
 
-    return <div className={props.task.status === TaskStatuses.Completed ? 'isDone' : ''} key={props.task.id}>
+    return <div className={props.task.status === TaskStatuses.Completed ? 'isDone' : ''}
+                key={props.task.id}
+                style={{position: 'relative'}}
+    >
         <Checkbox
             icon={<CheckCircleOutlineSharpIcon/>}
             checkedIcon={<CheckCircleSharpIcon/>}
@@ -46,7 +49,8 @@ export const Task = React.memo((props: TaskPropsType) => {
             onChange={onChangeStatusHandler}
         />
         <EditableSpan title={props.task.title} onChangeInputSpan={onChangeTitleHandler}/>
-        <IconButton onClick={removeTaskHandler}>
+        <IconButton onClick={removeTaskHandler}
+                    style={{position: 'absolute', top: '2px', right: '2px'}}>
             <RestoreFromTrashSharpIcon/>
         </IconButton>
     </div>

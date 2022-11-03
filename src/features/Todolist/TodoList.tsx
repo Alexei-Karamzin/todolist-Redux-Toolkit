@@ -80,6 +80,7 @@ export const TodoList = React.memo(({demo = false, ...props}: TodolistPropsType)
                         todolistId={props.todolist.id}
                     />)
                 }
+                {!taskForTodolist.length && <div style={{padding: '10px', color: 'grey'}}>No task</div>}
             </div>
             <div>
                 {renderFilterButton("all", "secondary", 'All')}
