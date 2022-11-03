@@ -4,9 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d3e7a3b1-9a85-4a8a-aea6-ba6718104b1d" name="Changes" comment="fix bug, refactor callbacks in component Task">
+    <list default="true" id="d3e7a3b1-9a85-4a8a-aea6-ba6718104b1d" name="Changes" comment="fix bug storybook task component">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/features/Todolist/Task/Task.stories.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/features/Todolist/Task/Task.stories.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/features/Todolist/TodoList.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/features/Todolist/TodoList.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/features/Todolist/TodolistsList.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/features/Todolist/TodolistsList.tsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -152,7 +153,7 @@
       <workItem from="1666640887068" duration="842000" />
       <workItem from="1666726770188" duration="7430000" />
       <workItem from="1667119999475" duration="10798000" />
-      <workItem from="1667236462046" duration="7535000" />
+      <workItem from="1667236462046" duration="10599000" />
     </task>
     <task id="LOCAL-00001" summary="create slice for all reducers, redux toolkit">
       <created>1661674389587</created>
@@ -294,7 +295,14 @@
       <option name="project" value="LOCAL" />
       <updated>1667409035890</updated>
     </task>
-    <option name="localTasksCounter" value="21" />
+    <task id="LOCAL-00021" summary="fix bug storybook task component">
+      <created>1667418544595</created>
+      <option name="number" value="00021" />
+      <option name="presentableId" value="LOCAL-00021" />
+      <option name="project" value="LOCAL" />
+      <updated>1667418544595</updated>
+    </task>
+    <option name="localTasksCounter" value="22" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -328,6 +336,7 @@
     <MESSAGE value="refactor structure" />
     <MESSAGE value="fix bug" />
     <MESSAGE value="fix bug, refactor callbacks in component Task" />
-    <option name="LAST_COMMIT_MESSAGE" value="fix bug, refactor callbacks in component Task" />
+    <MESSAGE value="fix bug storybook task component" />
+    <option name="LAST_COMMIT_MESSAGE" value="fix bug storybook task component" />
   </component>
 </project>

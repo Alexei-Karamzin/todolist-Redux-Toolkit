@@ -2,7 +2,7 @@ import {AppRootStateType, useActions} from "../../App/store";
 import {useSelector} from "react-redux";
 import {TodolistDomainType} from "./todolists-reducer";
 import React, {useEffect} from "react";
-import {Grid, Paper} from "@mui/material";
+import {Grid} from "@mui/material";
 import {AddItemForm} from "../../component/AddItemForm/AddItemForm";
 import {TodoList} from "./TodoList";
 import {TaskStateType} from "../../App/App";
@@ -36,19 +36,19 @@ export const TodolistsList = ({demo = false}: PropsType) => {
         <Grid container style={{padding: '20px'}}>
             <AddItemForm addItem={addTodolist}/>
         </Grid>
-        <Grid container spacing={4}>
+        <Grid container spacing={4} style={{flexWrap: 'nowrap', overflowX: 'scroll'}}>
             {
                 todolists.map((tl) => {
                     let tasksForTodolist = tasks[tl.id]
 
                     return <Grid item key={tl.id}>
-                        <Paper elevation={3} style={{padding: '10px'}}>
+                        <div style={{width: '310px'}}>
                             <TodoList
                                 todolist={tl}
                                 tasks={tasksForTodolist}
                                 demo={demo}
                             />
-                        </Paper>
+                        </div>
                     </Grid>
                 })
             }
