@@ -3,13 +3,11 @@ import {IconButton, TextField} from "@mui/material";
 import AddBoxIcon from '@mui/icons-material/AddBox';
 
 type addItemFormPropsType = {
-    addItem: (title: string) => void
+    addItem: (title: string) => Promise<any>
     disabled?: boolean
 }
 
 export const AddItemForm = React.memo(({addItem, disabled = false}: addItemFormPropsType) => {
-
-    console.log('AddItemForm call')
 
     const [title, setTitle] = useState('')
     const [error, setError] = useState<string | null>(null)
@@ -27,10 +25,14 @@ export const AddItemForm = React.memo(({addItem, disabled = false}: addItemFormP
         setTitle(newTitle.currentTarget.value)
     }
 
-    const addTaskOnClickHandler = () => {
+    const addTaskOnClickHandler = async () => {
         if (title.trim() !== '') {
-            addItem(title.trim())
-            setTitle('')
+            try {
+                await addItem(title.trim())
+                setTitle('')
+            } catch(err: any) {
+                setError(err)
+            }
         } else {
             setError('error')
         }

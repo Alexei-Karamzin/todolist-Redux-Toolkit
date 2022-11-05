@@ -6,11 +6,12 @@ import IconButton from '@mui/material/IconButton';
 import {Button} from "@mui/material";
 import {Task} from "./Task/Task";
 import {TaskStatuses, TaskType} from "../../api/tasks-api";
-import {useActions} from "../../App/store";
+import {useActions, useAppDispatch} from "../../App/store";
 import {TodolistDomainType} from "./todolists-reducer";
 import {tasksActions, todolistsActions} from "./index";
 import {FilterValueType} from "../../App/App";
 import {Paper} from "@mui/material";
+import {Simulate} from "react-dom/test-utils";
 
 type TodolistPropsType = {
     todolist: TodolistDomainType
@@ -22,6 +23,7 @@ export const TodoList = React.memo(({demo = false, ...props}: TodolistPropsType)
 
     const {changeTodolistFilter, removeTodolist, changeTodolistTitle} = useActions(todolistsActions)
     const {addTask, fetchTasks} = useActions(tasksActions)
+    const dispatch = useAppDispatch()
 
     useEffect(() => {
         if (demo) {
@@ -34,8 +36,18 @@ export const TodoList = React.memo(({demo = false, ...props}: TodolistPropsType)
         removeTodolist(todolistId)
     }
 
-    const addTaskCallback = useCallback((title: string) => {
-        addTask({todolistId: props.todolist.id, title: title})
+    const addTaskCallback = useCallback(async (title: string) => {
+        let thunk = addTask({todolistId: props.todolist.id, title: title})
+        const resultAction = await dispatch(thunk)
+
+        if (addTask.rejected.match(resultAction)) {
+            if (resultAction.payload?.fieldsErrors?.length) {
+                const error = resultAction.payload?.fieldsErrors[0]
+                throw new Error(error.error)
+            } else {
+                throw new Error("Some error occured")
+            }
+        }
     }, [props.todolist.id])
 
     const onChangeTitleHandler = useCallback((title: string) => {

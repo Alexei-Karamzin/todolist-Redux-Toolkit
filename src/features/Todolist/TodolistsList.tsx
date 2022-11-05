@@ -1,7 +1,7 @@
 import {AppRootStateType, useActions} from "../../App/store";
 import {useSelector} from "react-redux";
 import {TodolistDomainType} from "./todolists-reducer";
-import React, {useEffect} from "react";
+import React, {useCallback, useEffect} from "react";
 import {Grid} from "@mui/material";
 import {AddItemForm} from "../../component/AddItemForm/AddItemForm";
 import {TodoList} from "./TodoList";
@@ -32,9 +32,13 @@ export const TodolistsList = ({demo = false}: PropsType) => {
         return <Navigate to='/login'/>
     }
 
+    const addTodolistCallback = async (title: string) => {
+        addTodolist(title)
+    }
+
     return <>
         <Grid container style={{padding: '20px'}}>
-            <AddItemForm addItem={addTodolist}/>
+            <AddItemForm addItem={addTodolistCallback}/>
         </Grid>
         <Grid container spacing={4} style={{flexWrap: 'nowrap', overflowX: 'scroll'}}>
             {
