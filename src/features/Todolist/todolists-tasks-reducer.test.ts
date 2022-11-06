@@ -3,7 +3,7 @@ import {tasksReducer} from "./Task/tasks-reducer";
 import {TodolistDomainType, todolistsReducer} from "./todolists-reducer";
 import {v1} from "uuid";
 import {TaskPriority} from "../../api/tasks-api";
-import {addTodolist, removeTodolist} from "./todolists-actions";
+/*import {addTodolist, removeTodolist} from "./todolists-actions";
 
 test('property with todolistId should be added', () => {
     const startTaskState: TaskStateType = {}
@@ -65,4 +65,4 @@ test('property with todolistId should be deleted', () => {
 
     expect(keys.length).toBe(1)
     expect(endState['todolistId1']).toBeUndefined()
-})
+})*/

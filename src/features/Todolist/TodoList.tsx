@@ -11,7 +11,6 @@ import {TodolistDomainType} from "./todolists-reducer";
 import {tasksActions, todolistsActions} from "./index";
 import {FilterValueType} from "../../App/App";
 import {Paper} from "@mui/material";
-import {Simulate} from "react-dom/test-utils";
 
 type TodolistPropsType = {
     todolist: TodolistDomainType
@@ -41,9 +40,9 @@ export const TodoList = React.memo(({demo = false, ...props}: TodolistPropsType)
         const resultAction = await dispatch(thunk)
 
         if (addTask.rejected.match(resultAction)) {
-            if (resultAction.payload?.fieldsErrors?.length) {
-                const error = resultAction.payload?.fieldsErrors[0]
-                throw new Error(error.error)
+            if (resultAction.payload?.errors?.length) {
+                const errorMessage = resultAction.payload?.errors[0]
+                throw new Error(errorMessage)
             } else {
                 throw new Error("Some error occured")
             }

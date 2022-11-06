@@ -5,7 +5,6 @@ import {tasksApi, TaskType, UpdateTaskModelType} from "../../../api/tasks-api";
 import {handleServerAppError, handleServerNetworkError} from "../../../utils/error-utils";
 import {AppRootStateType} from "../../../App/store";
 import {asyncActions as asyncTodolistsActions} from '../todolists-reducer'
-import {FieldErrorType} from "../../../api/todolists-api";
 
 const initialState: TaskStateType = {}
 

@@ -1,14 +1,9 @@
 import {v1} from "uuid";
 import {TaskStateType} from "../../../App/App";
-import {
-    tasksReducer,
-
-
-
-
-} from "./tasks-reducer";
+import {tasksReducer} from "./tasks-reducer";
 import {TaskPriority, TaskStatuses} from "../../../api/tasks-api";
 import {TodolistType} from "../../../api/todolists-api";
+/*
 import {addTask, fetchTasks, removeTask, updateTask} from "./tasks-actions";
 import {fetchTodolists} from "../todolists-actions";
 
@@ -129,4 +124,4 @@ test('tasks should be added for todolists', ()=>{
     const endState = tasksReducer(emptyTodolists, action)
 
     expect(endState[todolistId1].length).toBe(2)
-})
+})*/
