@@ -41,8 +41,7 @@ export const TodoList = React.memo(({demo = false, ...props}: TodolistPropsType)
 
         if (addTask.rejected.match(resultAction)) {
             if (resultAction.payload?.errors?.length) {
-                const errorMessage = resultAction.payload?.errors[0]
-                throw new Error(errorMessage)
+                throw new Error(resultAction.payload?.errors[0])
             } else {
                 throw new Error("Some error occured")
             }
