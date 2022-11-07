@@ -4,8 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d3e7a3b1-9a85-4a8a-aea6-ba6718104b1d" name="Changes" comment="add dark mode switcher">
+    <list default="true" id="d3e7a3b1-9a85-4a8a-aea6-ba6718104b1d" name="Changes" comment="refactor dark mode switcher">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/index.tsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -65,25 +67,22 @@
       <recent name="D:\IT-INCUBATOR\projects\todolist-ts-my-project\todolist-ts-toolkit\src\features\Todolist\Task" />
     </key>
   </component>
-  <component name="RunManager" selected="Jest.correct todolist should be added">
-    <configuration name="correct todolist should be added" type="JavaScriptTestRunnerJest" temporary="true" nameIsGenerated="true">
-      <node-interpreter value="project" />
-      <node-options value="" />
-      <jest-package value="$PROJECT_DIR$/node_modules/react-scripts" />
-      <working-dir value="$PROJECT_DIR$" />
-      <envs />
-      <scope-kind value="TEST" />
-      <test-file value="$PROJECT_DIR$/src/features/Todolist/todolists-reducer.test.ts" />
-      <test-names>
-        <test-name value="correct todolist should be added" />
-      </test-names>
-      <method v="2" />
-    </configuration>
+  <component name="RunManager" selected="npm.deploy">
     <configuration name="deploy" type="js.build_tools.npm" temporary="true" nameIsGenerated="true">
       <package-json value="$PROJECT_DIR$/package.json" />
       <command value="run" />
       <scripts>
         <script value="deploy" />
+      </scripts>
+      <node-interpreter value="project" />
+      <envs />
+      <method v="2" />
+    </configuration>
+    <configuration name="predeploy" type="js.build_tools.npm" temporary="true" nameIsGenerated="true">
+      <package-json value="$PROJECT_DIR$/package.json" />
+      <command value="run" />
+      <scripts>
+        <script value="predeploy" />
       </scripts>
       <node-interpreter value="project" />
       <envs />
@@ -121,11 +120,11 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="npm.start" />
+        <item itemvalue="npm.predeploy" />
         <item itemvalue="npm.deploy" />
+        <item itemvalue="npm.start" />
         <item itemvalue="npm.storybook" />
         <item itemvalue="npm.test" />
-        <item itemvalue="Jest.correct todolist should be added" />
       </list>
     </recent_temporary>
   </component>
@@ -157,7 +156,7 @@
       <workItem from="1667672125139" duration="23000" />
       <workItem from="1667677822560" duration="5284000" />
       <workItem from="1667737015957" duration="766000" />
-      <workItem from="1667749137408" duration="11173000" />
+      <workItem from="1667749137408" duration="12788000" />
     </task>
     <task id="LOCAL-00001" summary="create slice for all reducers, redux toolkit">
       <created>1661674389587</created>
@@ -341,7 +340,14 @@
       <option name="project" value="LOCAL" />
       <updated>1667808848504</updated>
     </task>
-    <option name="localTasksCounter" value="27" />
+    <task id="LOCAL-00027" summary="refactor dark mode switcher">
+      <created>1667811098935</created>
+      <option name="number" value="00027" />
+      <option name="presentableId" value="LOCAL-00027" />
+      <option name="project" value="LOCAL" />
+      <updated>1667811098935</updated>
+    </task>
+    <option name="localTasksCounter" value="28" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -379,6 +385,7 @@
     <MESSAGE value="fix types in tasks-reducer.ts" />
     <MESSAGE value="refactor" />
     <MESSAGE value="add dark mode switcher" />
-    <option name="LAST_COMMIT_MESSAGE" value="add dark mode switcher" />
+    <MESSAGE value="refactor dark mode switcher" />
+    <option name="LAST_COMMIT_MESSAGE" value="refactor dark mode switcher" />
   </component>
 </project>
