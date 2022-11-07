@@ -1,6 +1,17 @@
-import React, {useEffect} from 'react';
+import React, {useEffect, useState} from 'react';
 import './App.css';
-import {AppBar, Button, CircularProgress, Container, IconButton, Toolbar, Typography} from '@mui/material';
+import {
+    AppBar,
+    Button,
+    CircularProgress,
+    Container,
+    createTheme,
+    IconButton, PaletteMode, Paper,
+    ThemeProvider,
+    Toolbar,
+    Typography,
+    useTheme
+} from '@mui/material';
 import MenuIcon from '@mui/icons-material/Menu';
 import {TaskType} from "../api/tasks-api";
 import {TodolistsList} from "../features/Todolist";
@@ -14,6 +25,12 @@ import {Login} from '../features/Auth';
 import {logout} from "../features/Auth/auth-reducer";
 import {authSelectors} from "../features/Auth";
 import {appSelectors} from "./index";
+import Brightness4Icon from '@mui/icons-material/Brightness4';
+import Brightness7Icon from '@mui/icons-material/Brightness7';
+import amber from '@mui/material/colors/amber';
+import deepOrange from '@mui/material/colors/deepOrange';
+import {grey} from "@mui/material/colors";
+
 
 export type FilterValueType = 'all' | 'completed' | 'active'
 
@@ -25,8 +42,44 @@ type PropsType = {
     demo?: boolean
 }
 
+/*const getDesignTokens = (mode: PaletteMode) => ({
+    palette: {
+        mode,
+        ...(mode === 'light'
+            ? {
+                // palette values for light mode
+                primary: amber,
+                divider: amber[200],
+                text: {
+                    primary: grey[900],
+                    secondary: grey[800],
+                },
+            }
+            : {
+                // palette values for dark mode
+                primary: deepOrange,
+                divider: deepOrange[700],
+                background: {
+                    default: deepOrange[900],
+                    paper: deepOrange[900],
+                },
+                text: {
+                    primary: '#fff',
+                    secondary: grey[500],
+                },
+            }),
+    },
+});*/
+
 export function App({demo = false}: PropsType) {
 
+    const [darkMode, setDarkMode] = useState(false)
+
+    const theme = createTheme({
+        palette: {
+            mode: darkMode ? "dark" : "light",
+        },
+    })
     const status = useSelector(appSelectors.selectStatus)
     const isInitialized = useSelector(appSelectors.selectIsInitialized)
     const isLoggedIn = useSelector(authSelectors.selectIsLoggedIn)
@@ -48,38 +101,52 @@ export function App({demo = false}: PropsType) {
         dispatch(logout())
     }
 
+    const changeModHandler = () => {
+        setDarkMode(!darkMode)
+    }
+
     return (
-        <div className="App">
-            <ErrorSnackbar/>
-            <AppBar position="static">
-                <Toolbar>
-                    <IconButton
-                        size="large"
-                        edge="start"
-                        color="inherit"
-                        aria-label="menu"
-                        sx={{mr: 2}}
-                    >
-                        <MenuIcon/>
-                    </IconButton>
-                    <Typography variant="h6" component="div" sx={{flexGrow: 1}}>
-                        News
-                    </Typography>
-                    {isLoggedIn
-                        ? <Button onClick={logoutHandler} color="inherit">Log out</Button>
-                        : <></>}
-                </Toolbar>
-                {status === 'loading' && <LinearProgress color="success"/>}
-            </AppBar>
-            <Container fixed>
-                <Routes>
-                    <Route path={"/"} element={<TodolistsList demo={demo}/>}/>
-                    <Route path={"/login"} element={<Login/>}/>
-                </Routes>
-            </Container>
-        </div>
+        <ThemeProvider theme={theme}>
+            <Paper style={{height: "100vh"}}>
+                <div className="App">
+                    <ErrorSnackbar/>
+                    <AppBar position="static">
+                        <Toolbar>
+                            <IconButton
+                                size="large"
+                                edge="start"
+                                color="inherit"
+                                aria-label="menu"
+                                sx={{mr: 2}}
+                            >
+                                <MenuIcon/>
+                            </IconButton>
+                            <Typography variant="h6" component="div" sx={{flexGrow: 1}}>
+                                News
+                            </Typography>
+                            <IconButton sx={{ml: 1}} onClick={changeModHandler} color="inherit">
+                                {theme.palette.mode === 'dark' ? <Brightness7Icon/> : <Brightness4Icon/>}
+                            </IconButton>
+                            {isLoggedIn
+                                ? <Button onClick={logoutHandler} color="inherit">Log out</Button>
+                                : <></>}
+                        </Toolbar>
+                        {status === 'loading' && <LinearProgress color="success"/>}
+                    </AppBar>
+                    <Container fixed>
+                        <Routes>
+                            <Route path={"/"} element={<TodolistsList demo={demo}/>}/>
+                            <Route path={"/login"} element={<Login/>}/>
+                        </Routes>
+                    </Container>
+                </div>
+            </Paper>
+        </ThemeProvider>
     );
 }
 
-
-
+/*<ColorModeContext.Provider value={colorMode}>
+            <ThemeProvider theme={theme}>*/
+{/*</ThemeProvider>
+        </ColorModeContext.Provider>*/
+}

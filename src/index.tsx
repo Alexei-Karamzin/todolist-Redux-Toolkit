@@ -8,11 +8,11 @@ import {store} from "./App/store";
 import {BrowserRouter} from "react-router-dom";
 
 ReactDOM.render(
-    <Provider store={store}>
-        <BrowserRouter>
-            <App />
-        </BrowserRouter>
-    </Provider>
+        <Provider store={store}>
+            <BrowserRouter>
+                <App/>
+            </BrowserRouter>
+        </Provider>
     , document.getElementById('root')
 );
 
@@ -20,3 +20,4 @@ ReactDOM.render(
 // unregister() to register() below. Note this comes with some pitfalls.
 // Learn more about service workers: https://bit.ly/CRA-PWA
 serviceWorker.unregister();
+
