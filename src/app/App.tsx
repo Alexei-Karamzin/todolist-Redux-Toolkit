@@ -106,8 +106,8 @@ export function App({demo = false}: PropsType) {
                     </AppBar>
                     <Container fixed>
                         <Routes>
-                            <Route path={"/"} element={<TodolistsList demo={demo}/>}/>
-                            <Route path={"/login"} element={<Login/>}/>
+                            <Route path={"todolist-Redux-Toolkit/"} element={<TodolistsList demo={demo}/>}/>
+                            <Route path={"todolist-Redux-Toolkit/login"} element={<Login/>}/>
                         </Routes>
                     </Container>
                 </div>
