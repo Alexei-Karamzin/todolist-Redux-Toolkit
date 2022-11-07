@@ -1,0 +1,1 @@
+{"version":3,"file":"static/css/main.343dacdd.css","mappings":"AAEA,QACE,UAAY,CACZ,4BACF","sources":["App/App.css"],"sourcesContent":["\r\n\r\n.isDone {\r\n  opacity: 0.6;\r\n  text-decoration: line-through\r\n}"],"names":[],"sourceRoot":""}
