@@ -7,8 +7,6 @@
     <list default="true" id="d3e7a3b1-9a85-4a8a-aea6-ba6718104b1d" name="Changes" comment="fix gh page">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/features/Todolist/TodoList.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/features/Todolist/TodoList.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/index.tsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -157,7 +155,7 @@
       <workItem from="1667672125139" duration="23000" />
       <workItem from="1667677822560" duration="5284000" />
       <workItem from="1667737015957" duration="766000" />
-      <workItem from="1667749137408" duration="14387000" />
+      <workItem from="1667749137408" duration="14620000" />
     </task>
     <task id="LOCAL-00001" summary="create slice for all reducers, redux toolkit">
       <created>1661674389587</created>
@@ -355,7 +353,14 @@
       <option name="project" value="LOCAL" />
       <updated>1667812969933</updated>
     </task>
-    <option name="localTasksCounter" value="29" />
+    <task id="LOCAL-00029" summary="fix gh page">
+      <created>1667814402904</created>
+      <option name="number" value="00029" />
+      <option name="presentableId" value="LOCAL-00029" />
+      <option name="project" value="LOCAL" />
+      <updated>1667814402904</updated>
+    </task>
+    <option name="localTasksCounter" value="30" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

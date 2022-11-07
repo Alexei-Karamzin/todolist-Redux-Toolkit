@@ -2,7 +2,7 @@
   "name": "todolist-ts-redux",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://Alexei-Karamzin.github.io/",
+  "homepage": "https://Alexei-Karamzin.github.io/todolist-Redux-Toolkit",
   "dependencies": {
     "@emotion/react": "^11.9.3",
     "@emotion/styled": "^11.9.3",
