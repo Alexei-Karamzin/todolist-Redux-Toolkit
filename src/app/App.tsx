@@ -6,11 +6,10 @@ import {
     CircularProgress,
     Container,
     createTheme,
-    IconButton, PaletteMode, Paper,
+    IconButton, Paper,
     ThemeProvider,
     Toolbar,
     Typography,
-    useTheme
 } from '@mui/material';
 import MenuIcon from '@mui/icons-material/Menu';
 import {TaskType} from "../api/tasks-api";
@@ -27,10 +26,6 @@ import {authSelectors} from "../features/Auth";
 import {appSelectors} from "./index";
 import Brightness4Icon from '@mui/icons-material/Brightness4';
 import Brightness7Icon from '@mui/icons-material/Brightness7';
-import amber from '@mui/material/colors/amber';
-import deepOrange from '@mui/material/colors/deepOrange';
-import {grey} from "@mui/material/colors";
-
 
 export type FilterValueType = 'all' | 'completed' | 'active'
 
@@ -42,42 +37,18 @@ type PropsType = {
     demo?: boolean
 }
 
-/*const getDesignTokens = (mode: PaletteMode) => ({
-    palette: {
-        mode,
-        ...(mode === 'light'
-            ? {
-                // palette values for light mode
-                primary: amber,
-                divider: amber[200],
-                text: {
-                    primary: grey[900],
-                    secondary: grey[800],
-                },
-            }
-            : {
-                // palette values for dark mode
-                primary: deepOrange,
-                divider: deepOrange[700],
-                background: {
-                    default: deepOrange[900],
-                    paper: deepOrange[900],
-                },
-                text: {
-                    primary: '#fff',
-                    secondary: grey[500],
-                },
-            }),
-    },
-});*/
-
 export function App({demo = false}: PropsType) {
 
     const [darkMode, setDarkMode] = useState(false)
 
-    const theme = createTheme({
+    const darkTheme = createTheme({
         palette: {
-            mode: darkMode ? "dark" : "light",
+            mode: "dark",
+        },
+    })
+    const lightTheme = createTheme({
+        palette: {
+            mode: "light",
         },
     })
     const status = useSelector(appSelectors.selectStatus)
@@ -106,7 +77,7 @@ export function App({demo = false}: PropsType) {
     }
 
     return (
-        <ThemeProvider theme={theme}>
+        <ThemeProvider theme={darkMode ? darkTheme : lightTheme}>
             <Paper style={{height: "100vh"}}>
                 <div className="App">
                     <ErrorSnackbar/>
@@ -125,7 +96,7 @@ export function App({demo = false}: PropsType) {
                                 News
                             </Typography>
                             <IconButton sx={{ml: 1}} onClick={changeModHandler} color="inherit">
-                                {theme.palette.mode === 'dark' ? <Brightness7Icon/> : <Brightness4Icon/>}
+                                {darkMode ? <Brightness7Icon/> : <Brightness4Icon/>}
                             </IconButton>
                             {isLoggedIn
                                 ? <Button onClick={logoutHandler} color="inherit">Log out</Button>
@@ -143,10 +114,4 @@ export function App({demo = false}: PropsType) {
             </Paper>
         </ThemeProvider>
     );
-}
-
-/*<ColorModeContext.Provider value={colorMode}>
-            <ThemeProvider theme={theme}>*/
-{/*</ThemeProvider>
-        </ColorModeContext.Provider>*/
 }
