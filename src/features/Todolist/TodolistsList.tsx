@@ -29,7 +29,7 @@ export const TodolistsList = ({demo = false}: PropsType) => {
     }, [])
 
     if(!isLoggedIn) {
-        return <Navigate to='/login'/>
+        return <Navigate to='/todolist-Redux-Toolkit/login'/>
     }
 
     const addTodolistCallback = async (title: string) => {

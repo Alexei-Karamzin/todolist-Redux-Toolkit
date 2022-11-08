@@ -100,7 +100,7 @@ export function App({demo = false}: PropsType) {
                             </IconButton>
                             {isLoggedIn
                                 ? <Button onClick={logoutHandler} color="inherit">Log out</Button>
-                                : <></>}
+                                : <>you are not registered in the system</>}
                         </Toolbar>
                         {status === 'loading' && <LinearProgress color="success"/>}
                     </AppBar>

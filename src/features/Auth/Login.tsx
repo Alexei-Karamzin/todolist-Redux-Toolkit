@@ -55,7 +55,7 @@ export const Login = () => {
     });
 
     if (isLoggedIn) {
-        return <Navigate to='/'/>
+        return <Navigate to='/todolist-Redux-Toolkit'/>
     }
 
     return <Grid container justifyContent={'center'}>
