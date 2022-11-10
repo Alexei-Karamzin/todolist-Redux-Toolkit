@@ -4,13 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d3e7a3b1-9a85-4a8a-aea6-ba6718104b1d" name="Changes" comment="fix routs">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/App.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/App.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/features/Auth/Login.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/features/Auth/Login.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/features/Todolist/TodolistsList.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/features/Todolist/TodolistsList.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/index.tsx" afterDir="false" />
-    </list>
+    <list default="true" id="d3e7a3b1-9a85-4a8a-aea6-ba6718104b1d" name="Changes" comment="refactor Login component, app" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -163,6 +157,7 @@
       <workItem from="1667830782605" duration="191000" />
       <workItem from="1667840780083" duration="38000" />
       <workItem from="1667842870045" duration="2089000" />
+      <workItem from="1667941354438" duration="61000" />
     </task>
     <task id="LOCAL-00001" summary="create slice for all reducers, redux toolkit">
       <created>1661674389587</created>
@@ -381,7 +376,14 @@
       <option name="project" value="LOCAL" />
       <updated>1667814788493</updated>
     </task>
-    <option name="localTasksCounter" value="32" />
+    <task id="LOCAL-00032" summary="refactor Login component, app">
+      <created>1667941407921</created>
+      <option name="number" value="00032" />
+      <option name="presentableId" value="LOCAL-00032" />
+      <option name="project" value="LOCAL" />
+      <updated>1667941407921</updated>
+    </task>
+    <option name="localTasksCounter" value="33" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -423,6 +425,7 @@
     <MESSAGE value="fix gh page" />
     <MESSAGE value="fix package.json" />
     <MESSAGE value="fix routs" />
-    <option name="LAST_COMMIT_MESSAGE" value="fix routs" />
+    <MESSAGE value="refactor Login component, app" />
+    <option name="LAST_COMMIT_MESSAGE" value="refactor Login component, app" />
   </component>
 </project>
