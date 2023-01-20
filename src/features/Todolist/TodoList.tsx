@@ -1,5 +1,5 @@
 import React, {useCallback, useEffect} from "react";
-import {AddItemForm} from "../../component/AddItemForm/AddItemForm";
+import {AddItemForm, AddItemFormSubmitHelperType} from "../../component/AddItemForm/AddItemForm";
 import {EditableSpan} from "../../component/EditableSpan/EditableSpan";
 import Delete from '@mui/icons-material/Delete';
 import IconButton from '@mui/material/IconButton';
@@ -35,16 +35,18 @@ export const TodoList = React.memo(({demo = false, ...props}: TodolistPropsType)
         removeTodolist(todolistId)
     }
 
-    const addTaskCallback = useCallback(async (title: string) => {
+    const addTaskTitle = useCallback(async (title: string, helper: AddItemFormSubmitHelperType) => {
         let thunk = addTask({todolistId: props.todolist.id, title: title})
         const resultAction = await dispatch(thunk)
 
         if (addTask.rejected.match(resultAction)) {
             if (resultAction.payload?.errors?.length) {
-                throw new Error(resultAction.payload?.errors[0])
+                helper.setError(resultAction.payload?.errors[0])
             } else {
-                throw new Error("Some error occured")
+                helper.setError("Some error occured")
             }
+        } else {
+            helper.setTitle('')
         }
     }, [props.todolist.id])
 
@@ -81,7 +83,7 @@ export const TodoList = React.memo(({demo = false, ...props}: TodolistPropsType)
             <h3>
                 <EditableSpan title={props.todolist.title} onChangeInputSpan={onChangeTitleHandler}/>
             </h3>
-            <AddItemForm addItem={addTaskCallback} disabled={props.todolist.entityStatus === "loading"}/>
+            <AddItemForm addItem={addTaskTitle} disabled={props.todolist.entityStatus === "loading"}/>
             <div>
                 {
                     taskForTodolist.map((el) => <Task

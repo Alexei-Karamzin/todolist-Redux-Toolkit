@@ -4,7 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d3e7a3b1-9a85-4a8a-aea6-ba6718104b1d" name="Changes" comment="refactor Login component, app" />
+    <list default="true" id="d3e7a3b1-9a85-4a8a-aea6-ba6718104b1d" name="Changes" comment="fix">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/component/AddItemForm/AddItemForm.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/component/AddItemForm/AddItemForm.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/features/Todolist/TodoList.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/features/Todolist/TodoList.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/index.tsx" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -158,6 +163,20 @@
       <workItem from="1667840780083" duration="38000" />
       <workItem from="1667842870045" duration="2089000" />
       <workItem from="1667941354438" duration="61000" />
+      <workItem from="1668100558040" duration="45000" />
+      <workItem from="1668236916688" duration="67000" />
+      <workItem from="1668327677785" duration="33000" />
+      <workItem from="1668340507388" duration="1247000" />
+      <workItem from="1668447770395" duration="1593000" />
+      <workItem from="1668543018612" duration="31000" />
+      <workItem from="1668959415196" duration="105000" />
+      <workItem from="1670079061118" duration="48000" />
+      <workItem from="1670105649829" duration="55000" />
+      <workItem from="1670106150044" duration="868000" />
+      <workItem from="1671881971769" duration="2801000" />
+      <workItem from="1671884832163" duration="2014000" />
+      <workItem from="1673179811397" duration="49000" />
+      <workItem from="1673786171897" duration="60000" />
     </task>
     <task id="LOCAL-00001" summary="create slice for all reducers, redux toolkit">
       <created>1661674389587</created>
@@ -383,7 +402,14 @@
       <option name="project" value="LOCAL" />
       <updated>1667941407921</updated>
     </task>
-    <option name="localTasksCounter" value="33" />
+    <task id="LOCAL-00033" summary="fix">
+      <created>1668100581868</created>
+      <option name="number" value="00033" />
+      <option name="presentableId" value="LOCAL-00033" />
+      <option name="project" value="LOCAL" />
+      <updated>1668100581868</updated>
+    </task>
+    <option name="localTasksCounter" value="34" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -401,7 +427,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="create slice, redux toolkit" />
     <MESSAGE value="create slice for all reducers, redux toolkit" />
     <MESSAGE value="createAsyncThunk, fix bug" />
     <MESSAGE value="createAsyncThunk, refactor unit tests" />
@@ -426,6 +451,7 @@
     <MESSAGE value="fix package.json" />
     <MESSAGE value="fix routs" />
     <MESSAGE value="refactor Login component, app" />
-    <option name="LAST_COMMIT_MESSAGE" value="refactor Login component, app" />
+    <MESSAGE value="fix" />
+    <option name="LAST_COMMIT_MESSAGE" value="fix" />
   </component>
 </project>
