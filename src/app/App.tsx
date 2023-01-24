@@ -17,15 +17,15 @@ import {TodolistsList} from "../features/Todolist";
 import LinearProgress from '@mui/material/LinearProgress';
 import {ErrorSnackbar} from "../component/ErrorSnackbar/ErrorSnackbar";
 import {useSelector} from "react-redux";
-import {useAppDispatch} from "./store";
-import {asyncActions} from "./app-reducer";
-import {Route, Routes} from "react-router-dom";
 import {Login} from '../features/Auth';
 import {logout} from "../features/Auth/auth-reducer";
 import {authSelectors} from "../features/Auth";
 import {appSelectors} from "./index";
 import Brightness4Icon from '@mui/icons-material/Brightness4';
 import Brightness7Icon from '@mui/icons-material/Brightness7';
+import {useAppDispatch} from "./store";
+import {asyncActions} from "./app-reducer";
+import {Route, Routes} from 'react-router-dom';
 
 export type FilterValueType = 'all' | 'completed' | 'active'
 

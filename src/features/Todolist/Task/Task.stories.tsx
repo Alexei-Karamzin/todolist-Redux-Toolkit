@@ -5,7 +5,7 @@ import {action} from "@storybook/addon-actions";
 import {Task} from "./Task";
 import {v1} from "uuid";
 import {TaskPriority} from "../../../api/tasks-api";
-import {ReduxStoreProviderDecorator} from "../../../App/ReduxStoreProviderDecorator";
+import {ReduxStoreProviderDecorator} from "../../../app/ReduxStoreProviderDecorator";
 
 export default {
     title: 'TODOLIST/Task',

@@ -1,5 +1,5 @@
 import {v1} from "uuid";
-import {TaskStateType} from "../../../App/App";
+import {TaskStateType} from "../../../app/App";
 import {tasksReducer} from "./tasks-reducer";
 import {TaskPriority, TaskStatuses} from "../../../api/tasks-api";
 import {TodolistType} from "../../../api/todolists-api";

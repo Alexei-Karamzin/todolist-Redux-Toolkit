@@ -1,6 +1,6 @@
-import {FilterValueType} from "../../App/App";
+import {FilterValueType} from "../../app/App";
 import {todolistsApi, TodolistType} from "../../api/todolists-api";
-import {RequestStatusType, setAppStatusAC} from "../../App/app-reducer";
+import {RequestStatusType, setAppStatusAC} from "../../app/app-reducer";
 import {createAsyncThunk, createSlice, PayloadAction} from "@reduxjs/toolkit";
 import {handleServerAppError, handleServerNetworkError} from "../../utils/error-utils";
 

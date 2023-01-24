@@ -5,7 +5,7 @@ import CheckCircleSharpIcon from "@mui/icons-material/CheckCircleSharp";
 import {EditableSpan} from "../../../component/EditableSpan/EditableSpan";
 import RestoreFromTrashSharpIcon from "@mui/icons-material/RestoreFromTrashSharp";
 import {TaskStatuses, TaskType} from "../../../api/tasks-api";
-import {useActions} from "../../../App/store";
+import {useActions} from "../../../app/store";
 import {tasksActions} from "../index";
 
 type TaskPropsType = {

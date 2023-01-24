@@ -1,11 +1,11 @@
-import {AppRootStateType, useActions} from "../../App/store";
+import {AppRootStateType, useActions} from "../../app/store";
 import {useSelector} from "react-redux";
 import {TodolistDomainType} from "./todolists-reducer";
 import React, {useEffect} from "react";
 import {Grid} from "@mui/material";
 import {AddItemForm} from "../../component/AddItemForm/AddItemForm";
 import {TodoList} from "./TodoList";
-import {TaskStateType} from "../../App/App";
+import {TaskStateType} from "../../app/App";
 import {Navigate} from "react-router-dom";
 import {selectIsLoggedIn} from "../Auth/selectors";
 import {todolistsActions} from "./index";
