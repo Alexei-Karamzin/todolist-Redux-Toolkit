@@ -25,9 +25,30 @@ export const TaskIsDoneStory = Template.bind({});
 export const TaskIsNotDoneStory = Template.bind({});
 
 TaskIsDoneStory.args = {
-    task: {id: v1(), title: 'HTML&CSS', description: '', todoListId: 'todolistId1', order: 0, status: 2, priority: TaskPriority.Low, startDate: '', deadline: '', addedDate: ''}
+    task: {
+        id: v1(),
+        title: 'HTML&CSS',
+        description: '',
+        todoListId: 'todolistId1',
+        order: 0,
+        status: 2,
+        priority: TaskPriority.Low,
+        startDate: '',
+        deadline: '',
+        addedDate: '',
+    }
 };
 
 TaskIsNotDoneStory.args = {
-    task: {id: v1(), title: '2', description: '', todoListId: 'todolistId1', order: 0, status: 1, priority: TaskPriority.Low, startDate: '', deadline: '', addedDate: ''}
+    task: {id: v1(),
+        title: '2',
+        description: '',
+        todoListId: 'todolistId1',
+        order: 0,
+        status: 1,
+        priority: TaskPriority.Low,
+        startDate: '',
+        deadline: '',
+        addedDate: '',
+    }
 };

@@ -14,7 +14,7 @@ type PropsType = {
     demo?: boolean
 }
 
-export const TodolistsList = ({demo = false}: PropsType) => {
+export const TodolistsList = React.memo(({demo = false}: PropsType) => {
 
     const todolists = useSelector<AppRootStateType, Array<TodolistDomainType>>(state => state.todolists)
     const tasks = useSelector<AppRootStateType, TaskStateType>(state => state.tasks)
@@ -58,4 +58,4 @@ export const TodolistsList = ({demo = false}: PropsType) => {
             }
         </Grid>
     </>
-}
+})
