@@ -28,7 +28,7 @@ export const TodolistsList = React.memo(({demo = false}: PropsType) => {
         fetchTodolists()
     }, [])
 
-    if(!isLoggedIn) {
+    if (!isLoggedIn) {
         return <Navigate to='/todolist-Redux-Toolkit/login'/>
     }
 

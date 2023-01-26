@@ -33,6 +33,7 @@ export const AddItemForm = React.memo(({addItem, disabled = false}: addItemFormP
     const addTaskOnClickHandler = () => {
         if (title.trim() !== '') {
             addItem(title, {setError, setTitle})
+            setTitle('')
         } else {
             setError('error')
         }
