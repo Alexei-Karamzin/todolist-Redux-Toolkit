@@ -4,11 +4,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d3e7a3b1-9a85-4a8a-aea6-ba6718104b1d" name="Changes" comment="refactor stories">
+    <list default="true" id="d3e7a3b1-9a85-4a8a-aea6-ba6718104b1d" name="Changes" comment="refactor styles">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/store.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/store.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/component/AddItemForm/AddItemForm.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/component/AddItemForm/AddItemForm.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/features/Todolist/TodoList.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/features/Todolist/TodoList.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/features/Todolist/TodolistsList.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/features/Todolist/TodolistsList.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/features/Auth/auth-reducer.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/features/Auth/auth-reducer.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/features/Todolist/Task/tasks-reducer.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/features/Todolist/Task/tasks-reducer.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/features/Todolist/todolists-reducer.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/features/Todolist/todolists-reducer.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/utils/error-utils.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils/error-utils.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -121,8 +124,8 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="npm.storybook" />
         <item itemvalue="npm.start" />
+        <item itemvalue="npm.storybook" />
         <item itemvalue="npm.predeploy" />
         <item itemvalue="npm.deploy" />
         <item itemvalue="npm.test" />
@@ -179,7 +182,8 @@
       <workItem from="1673786171897" duration="60000" />
       <workItem from="1674550858105" duration="6070000" />
       <workItem from="1674663878734" duration="1299000" />
-      <workItem from="1674718786381" duration="7038000" />
+      <workItem from="1674718786381" duration="13473000" />
+      <workItem from="1675164789212" duration="5611000" />
     </task>
     <task id="LOCAL-00001" summary="create slice for all reducers, redux toolkit">
       <created>1661674389587</created>
@@ -426,7 +430,14 @@
       <option name="project" value="LOCAL" />
       <updated>1674722197879</updated>
     </task>
-    <option name="localTasksCounter" value="36" />
+    <task id="LOCAL-00036" summary="refactor styles">
+      <created>1674726054004</created>
+      <option name="number" value="00036" />
+      <option name="presentableId" value="LOCAL-00036" />
+      <option name="project" value="LOCAL" />
+      <updated>1674726054004</updated>
+    </task>
+    <option name="localTasksCounter" value="37" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -444,7 +455,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="createAsyncThunk, refactor unit tests" />
     <MESSAGE value="createAsyncThunk, refactor api types, Formik in Login page" />
     <MESSAGE value="refactor validation" />
     <MESSAGE value="refactor types" />
@@ -469,6 +479,19 @@
     <MESSAGE value="fix" />
     <MESSAGE value="fix imports, api-keys" />
     <MESSAGE value="refactor stories" />
-    <option name="LAST_COMMIT_MESSAGE" value="refactor stories" />
+    <MESSAGE value="refactor styles" />
+    <option name="LAST_COMMIT_MESSAGE" value="refactor styles" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/src/features/Todolist/todolists-reducer.ts</url>
+          <line>81</line>
+          <properties lambdaOrdinal="-1" />
+          <option name="timeStamp" value="2" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

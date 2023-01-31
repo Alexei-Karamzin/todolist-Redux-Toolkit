@@ -3,7 +3,7 @@ import {createAsyncThunk, createSlice} from "@reduxjs/toolkit";
 import {setAppStatusAC} from "../../../app/app-reducer";
 import {tasksApi, TaskType, UpdateTaskModelType} from "../../../api/tasks-api";
 import {handleServerAppError, handleServerNetworkError} from "../../../utils/error-utils";
-import {AppRootStateType} from "../../../app/store";
+import {AppRootStateType, ThunkErrorType} from "../../../app/store";
 import {asyncActions as asyncTodolistsActions} from '../todolists-reducer'
 
 const initialState: TaskStateType = {}
@@ -24,23 +24,21 @@ const removeTask = createAsyncThunk('tasks/removeTasks', async (param: { taskId:
 const addTask = createAsyncThunk<
     TaskType,
     { title: string, todolistId: string },
-    { rejectValue: { errors: Array<string>, fieldsErrors?: string[] }}>('tasks/addTask', async (param, { // Array<FieldErrorType> --> Array<FieldErrorType>fieldsErrors?
-    dispatch,
-    rejectWithValue
-}) => {
-    dispatch(setAppStatusAC({status: 'loading'}))
+    ThunkErrorType
+    >('tasks/addTask', async (param, thunkAPI) => {
+    thunkAPI.dispatch(setAppStatusAC({status: 'loading'}))
     try {
         const res = await tasksApi.createTask(param.todolistId, param.title)
         if (res.data.resultCode === 0) {
-            dispatch(setAppStatusAC({status: 'succeeded'}))
+            thunkAPI.dispatch(setAppStatusAC({status: 'succeeded'}))
             return res.data.data.item
         } else {
-            handleServerAppError(res.data, dispatch)
-            return rejectWithValue({errors: res.data.messages, fieldsErrors: res.data.messages}) // !! fieldsErrors
+            handleServerAppError(res.data, thunkAPI.dispatch)
+            return thunkAPI.rejectWithValue({errors: res.data.messages, fieldsErrors: undefined}) // !! fieldsErrors
         }
     } catch (err: any) {
-        handleServerNetworkError(err, dispatch)
-        return rejectWithValue({errors: [err.message], fieldsErrors: undefined})
+        return handleServerNetworkError(err, thunkAPI)
+        //rejectWithValue({errors: [err.message], fieldsErrors: undefined})
     }
 })
 const updateTask = createAsyncThunk('tasks/updateTask', async (param: { taskId: string, domainModel: UpdateDomainTaskModelType, todolistId: string }, {

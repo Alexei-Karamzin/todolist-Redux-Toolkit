@@ -11,7 +11,8 @@ export const handleServerAppError = <D>(data: ResponseType<D>, dispatch: Dispatc
     dispatch(setAppStatusAC({status: 'failed'}))
 }
 
-export const handleServerNetworkError = (err: {message: string}, dispatch: Dispatch) => {
-    dispatch(setAppErrorAC({error: err.message ? err.message : 'ERROR'}))
-    dispatch(setAppStatusAC({status: 'failed'}))
+export const handleServerNetworkError = (err: {message: string}, thunkAPI: any) => {
+    thunkAPI.dispatch(setAppErrorAC({error: err.message ? err.message : 'ERROR'}))
+    thunkAPI.dispatch(setAppStatusAC({status: 'failed'}))
+    return thunkAPI.rejectWithValue({errors: [err.message], fieldsErrors: undefined})
 }

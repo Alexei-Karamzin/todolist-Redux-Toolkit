@@ -7,36 +7,36 @@ import {AxiosError} from "axios";
 
 export const login = createAsyncThunk<undefined, LoginParamsType, {
     rejectValue: { errors: Array<string>, fieldsErrors?: Array<FieldErrorType> }
-}>('auth/login', async (param, thunkAPI) => {
-    thunkAPI.dispatch(setAppStatusAC({status: 'loading'}))
+}>('auth/login', async (param, {dispatch, rejectWithValue}) => {
+    dispatch(setAppStatusAC({status: 'loading'}))
     try {
         const res = await authApi.login(param)
         if (res.data.resultCode === 0) {
-            thunkAPI.dispatch(setAppStatusAC({status: 'succeeded'}))
+            dispatch(setAppStatusAC({status: 'succeeded'}))
         } else {
-            handleServerAppError(res.data, thunkAPI.dispatch)
-            return thunkAPI.rejectWithValue({errors: res.data.messages, fieldsErrors: res.data.fieldsErrors})
+            handleServerAppError(res.data, dispatch)
+            return rejectWithValue({errors: res.data.messages, fieldsErrors: res.data.fieldsErrors})
         }
     } catch (error: any) {
         const err: AxiosError = error
-        handleServerNetworkError({message: err.message}, thunkAPI.dispatch)
-        return thunkAPI.rejectWithValue({errors: [err.message], fieldsErrors: undefined})
+        handleServerNetworkError({message: err.message}, dispatch)
+        return rejectWithValue({errors: [err.message], fieldsErrors: undefined})
     }
 })
 
-export const logout = createAsyncThunk('auth/logout', async (param, thunkAPI) => {
-    thunkAPI.dispatch(setAppStatusAC({status: 'loading'}))
+export const logout = createAsyncThunk('auth/logout', async (param, {dispatch, rejectWithValue}) => {
+    dispatch(setAppStatusAC({status: 'loading'}))
     try {
         const res = await authApi.logout()
         if (res.data.resultCode === 0) {
-            thunkAPI.dispatch(setAppStatusAC({status: 'succeeded'}))
+            dispatch(setAppStatusAC({status: 'succeeded'}))
         } else {
-            handleServerAppError(res.data, thunkAPI.dispatch)
-            return thunkAPI.rejectWithValue({})
+            handleServerAppError(res.data, dispatch)
+            return rejectWithValue({})
         }
     } catch (error: any) {
-        handleServerNetworkError(error, thunkAPI.dispatch)
-        return thunkAPI.rejectWithValue({})
+        handleServerNetworkError(error, dispatch)
+        return rejectWithValue({})
     }
 })
 

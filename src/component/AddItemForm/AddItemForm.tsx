@@ -30,10 +30,14 @@ export const AddItemForm = React.memo(({addItem, disabled = false}: addItemFormP
         setTitle(newTitle.currentTarget.value)
     }
 
-    const addTaskOnClickHandler = () => {
+    const addTaskOnClickHandler = async () => {
         if (title.trim() !== '') {
-            addItem(title, {setError, setTitle})
-            setTitle('')
+            try {
+                await addItem(title, {setError, setTitle})
+                setTitle('')
+            } catch (error) {
+                setError('network error')
+            }
         } else {
             setError('error')
         }

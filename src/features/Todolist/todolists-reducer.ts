@@ -3,6 +3,7 @@ import {todolistsApi, TodolistType} from "../../api/todolists-api";
 import {RequestStatusType, setAppStatusAC} from "../../app/app-reducer";
 import {createAsyncThunk, createSlice, PayloadAction} from "@reduxjs/toolkit";
 import {handleServerAppError, handleServerNetworkError} from "../../utils/error-utils";
+import {ThunkErrorType} from "../../app/store";
 
 const fetchTodolists = createAsyncThunk('todolists/fetchTodolists', async (param, {
     dispatch,
@@ -46,7 +47,7 @@ const removeTodolist = createAsyncThunk('todolists/removeTodolists', async (id: 
     }*/
 })
 
-const changeTodolistTitle = createAsyncThunk('todolists/changeTodolistsTitle', async (param: { id: string, title: string }, {
+const changeTodolistTitle = createAsyncThunk('todolists/changeTodolistTitle', async (param: { id: string, title: string }, {
     dispatch,
     rejectWithValue
 }) => {
@@ -67,25 +68,21 @@ const changeTodolistTitle = createAsyncThunk('todolists/changeTodolistsTitle', a
     }
 })
 
-const addTodolist = createAsyncThunk('todolists/addTodolist', async (title: string, {
-    dispatch,
-    rejectWithValue
-}) => {
-    dispatch(setAppStatusAC({status: "loading"}))
-
-    const res = await todolistsApi.createTodolist(title)
+const addTodolist = createAsyncThunk<{todolist: TodolistType}, string, ThunkErrorType>
+('todolists/addTodolist', async (title: string, thunkAPI) => {
+    thunkAPI.dispatch(setAppStatusAC({status: "loading"}))
 
     try {
+        const res = await todolistsApi.createTodolist(title)
         if (res.data.resultCode === 0) {
-            dispatch(setAppStatusAC({status: "succeeded"}))
+            thunkAPI.dispatch(setAppStatusAC({status: "succeeded"}))
             return {todolist: res.data.data.item}
         } else {
-            handleServerAppError(res.data, dispatch)
-            return rejectWithValue(null)
+            handleServerAppError(res.data, thunkAPI.dispatch)
+            return thunkAPI.rejectWithValue({errors: res.data.messages, fieldsErrors: undefined}) // res.data.messages
         }
     } catch (err: any) {
-        handleServerNetworkError(err, dispatch)
-        return rejectWithValue(null)
+        return handleServerNetworkError(err, thunkAPI)
     }
 })
 
