@@ -1,4 +1,4 @@
-import {setAppStatusAC} from "../../app/app-reducer";
+import {setAppStatusAC} from "../App/app-reducer";
 import {authApi, LoginParamsType} from "../../api/auth-api";
 import {handleServerAppError, handleServerNetworkError} from "../../utils/error-utils";
 import {createAsyncThunk, createSlice, PayloadAction} from "@reduxjs/toolkit";
@@ -63,7 +63,6 @@ export const slice = createSlice({
     }
 })
 
-export const authReducer = slice.reducer
 export const {setIsLoggedInAC} = slice.actions
 
 

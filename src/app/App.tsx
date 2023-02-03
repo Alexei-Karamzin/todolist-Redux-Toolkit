@@ -20,11 +20,11 @@ import {useSelector} from "react-redux";
 import {Login} from '../features/Auth';
 import {logout} from "../features/Auth/auth-reducer";
 import {authSelectors} from "../features/Auth";
-import {appSelectors} from "./index";
+import {appSelectors} from "../features/App";
 import Brightness4Icon from '@mui/icons-material/Brightness4';
 import Brightness7Icon from '@mui/icons-material/Brightness7';
-import {useAppDispatch} from "./store";
-import {asyncActions} from "./app-reducer";
+import {useAppDispatch} from "../utils/redux-utils";
+import {asyncActions} from "../features/App/app-reducer";
 import {Route, Routes} from 'react-router-dom';
 
 export type FilterValueType = 'all' | 'completed' | 'active'

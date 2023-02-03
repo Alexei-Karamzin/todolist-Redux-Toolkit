@@ -1,4 +1,4 @@
-import {AppRootStateType, useActions} from "../../app/store";
+import {AppRootStateType} from "../../app/store";
 import {useSelector} from "react-redux";
 import {TodolistDomainType} from "./todolists-reducer";
 import React, {useEffect} from "react";
@@ -9,6 +9,7 @@ import {TaskStateType} from "../../app/App";
 import {Navigate} from "react-router-dom";
 import {selectIsLoggedIn} from "../Auth/selectors";
 import {todolistsActions} from "./index";
+import { useActions } from "../../utils/redux-utils";
 
 type PropsType = {
     demo?: boolean

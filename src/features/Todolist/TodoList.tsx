@@ -6,11 +6,11 @@ import IconButton from '@mui/material/IconButton';
 import {Button} from "@mui/material";
 import {Task} from "./Task/Task";
 import {TaskStatuses, TaskType} from "../../api/tasks-api";
-import {useActions, useAppDispatch} from "../../app/store";
 import {TodolistDomainType} from "./todolists-reducer";
 import {tasksActions, todolistsActions} from "./index";
 import {FilterValueType} from "../../app/App";
 import {Paper} from "@mui/material";
+import {useActions, useAppDispatch} from "../../utils/redux-utils";
 
 type TodolistPropsType = {
     todolist: TodolistDomainType

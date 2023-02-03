@@ -1,6 +1,5 @@
 import {TaskStateType} from "../../app/App";
-import {tasksReducer} from "./Task/tasks-reducer";
-import {TodolistDomainType, todolistsReducer} from "./todolists-reducer";
+import {TodolistDomainType} from "./todolists-reducer";
 import {v1} from "uuid";
 import {TaskPriority} from "../../api/tasks-api";
 /*import {addTodolist, removeTodolist} from "./todolists-actions";

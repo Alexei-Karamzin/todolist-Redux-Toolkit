@@ -1,6 +1,6 @@
 import {TaskStateType} from "../../../app/App";
 import {createAsyncThunk, createSlice} from "@reduxjs/toolkit";
-import {setAppStatusAC} from "../../../app/app-reducer";
+import {setAppStatusAC} from "../../App/app-reducer";
 import {tasksApi, TaskType, UpdateTaskModelType} from "../../../api/tasks-api";
 import {handleServerAppError, handleServerNetworkError} from "../../../utils/error-utils";
 import {AppRootStateType, ThunkErrorType} from "../../../app/store";
@@ -38,7 +38,7 @@ const addTask = createAsyncThunk<
         }
     } catch (err: any) {
         return handleServerNetworkError(err, thunkAPI)
-        //rejectWithValue({errors: [err.message], fieldsErrors: undefined})
+        //rejectWithValue({errors: [err.message], fieldsErrors: undefined}
     }
 })
 const updateTask = createAsyncThunk('tasks/updateTask', async (param: { taskId: string, domainModel: UpdateDomainTaskModelType, todolistId: string }, {
@@ -83,7 +83,7 @@ const updateTask = createAsyncThunk('tasks/updateTask', async (param: { taskId: 
 
 export const asyncActions = {fetchTasks, removeTask, addTask, updateTask}
 
-const slice = createSlice({
+export const slice = createSlice({
     name: 'tasks',
     initialState,
     reducers: {},
@@ -121,7 +121,7 @@ const slice = createSlice({
     }
 })
 
-export const tasksReducer = slice.reducer
+//export const tasksReducer = slice.reducer
 
 // types
 

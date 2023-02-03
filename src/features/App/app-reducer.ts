@@ -1,5 +1,5 @@
-import {authApi} from "../api/auth-api";
-import {setIsLoggedInAC} from "../features/Auth/auth-reducer";
+import {authApi} from "../../api/auth-api";
+import {setIsLoggedInAC} from "../Auth/auth-reducer";
 import {createAsyncThunk, createSlice, PayloadAction} from "@reduxjs/toolkit";
 
 export const initializeApp = createAsyncThunk('app/initializeApp', async (param, {dispatch}) => {
@@ -15,7 +15,7 @@ export const asyncActions = {
     initializeApp
 }
 
-const slice = createSlice({
+export const slice = createSlice({
     name: 'app',
     initialState: {
         // происходит ли взаимодействие с сервером
@@ -40,7 +40,6 @@ const slice = createSlice({
     }
 })
 
-export const appReducer = slice.reducer
 export const {setAppStatusAC, setAppErrorAC} = slice.actions
 
 // types

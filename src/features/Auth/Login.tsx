@@ -8,10 +8,10 @@ import FormLabel from '@mui/material/FormLabel';
 import TextField from '@mui/material/TextField';
 import Button from '@mui/material/Button';
 import {FormikHelpers, useFormik} from "formik";
-import {useAppDispatch} from "../../app/store";
 import {useSelector} from "react-redux";
 import { Navigate } from 'react-router-dom';
 import {authActions, authSelectors} from "./index";
+import {useAppDispatch} from "../../utils/redux-utils";
 
 type FormValuesTypes = {
     email: string

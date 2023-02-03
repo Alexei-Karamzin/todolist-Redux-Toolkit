@@ -2,7 +2,6 @@ import {v1} from "uuid";
 import {
     changeTodolistEntityStatus,
     changeTodolistFilter, TodolistDomainType,
-    todolistsReducer
 } from "./todolists-reducer";
 /*import {addTodolist, changeTodolistTitle, fetchTodolists, removeTodolist} from "./todolists-actions";
 

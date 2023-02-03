@@ -4,13 +4,32 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d3e7a3b1-9a85-4a8a-aea6-ba6718104b1d" name="Changes" comment="refactor styles">
+    <list default="true" id="d3e7a3b1-9a85-4a8a-aea6-ba6718104b1d" name="Changes" comment="fix error utils, refactor reducers handleServerNetworkError and handleServerAppError">
+      <change afterPath="$PROJECT_DIR$/src/features/App/index.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/utils/redux-help-types.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/utils/redux-utils.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/App.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/App.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/ReduxStoreProviderDecorator.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/ReduxStoreProviderDecorator.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/app-reducer.test.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/features/App/app-reducer.test.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/app-reducer.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/features/App/app-reducer.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/index.ts" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/app/store.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/store.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/component/AddItemForm/AddItemForm.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/component/AddItemForm/AddItemForm.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/component/EditableSpan/EditableSpan.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/component/EditableSpan/EditableSpan.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/component/ErrorSnackbar/ErrorSnackbar.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/component/ErrorSnackbar/ErrorSnackbar.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/features/Auth/Login.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/features/Auth/Login.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/features/Auth/auth-reducer.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/features/Auth/auth-reducer.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/features/Auth/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/features/Auth/index.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/features/Todolist/Task/Task.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/features/Todolist/Task/Task.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/features/Todolist/Task/tasks-reducer.test.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/features/Todolist/Task/tasks-reducer.test.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/features/Todolist/Task/tasks-reducer.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/features/Todolist/Task/tasks-reducer.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/features/Todolist/TodoList.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/features/Todolist/TodoList.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/features/Todolist/TodolistsList.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/features/Todolist/TodolistsList.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/features/Todolist/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/features/Todolist/index.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/features/Todolist/todolists-reducer.test.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/features/Todolist/todolists-reducer.test.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/features/Todolist/todolists-reducer.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/features/Todolist/todolists-reducer.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/features/Todolist/todolists-tasks-reducer.test.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/features/Todolist/todolists-tasks-reducer.test.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/utils/error-utils.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils/error-utils.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -21,9 +40,9 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="TypeScript File" />
         <option value="tsconfig.json" />
         <option value="TypeScript JSX File" />
+        <option value="TypeScript File" />
       </list>
     </option>
   </component>
@@ -67,6 +86,7 @@
       <recent name="D:\IT-INCUBATOR\projects\todolist-ts-my-project\todolist-ts-toolkit\src\features\Todolist\Task\tasks-actions.ts" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\NEW\todolist-Redux-Toolkit\src\features\App" />
       <recent name="D:\IT-INCUBATOR\projects\todolist-ts-my-project\todolist-ts-toolkit\src\features\Todolist" />
       <recent name="D:\IT-INCUBATOR\projects\todolist-ts-my-project\todolist-ts-toolkit\src\features\Todolist\Task" />
     </key>
@@ -183,7 +203,7 @@
       <workItem from="1674550858105" duration="6070000" />
       <workItem from="1674663878734" duration="1299000" />
       <workItem from="1674718786381" duration="13473000" />
-      <workItem from="1675164789212" duration="5611000" />
+      <workItem from="1675164789212" duration="14524000" />
     </task>
     <task id="LOCAL-00001" summary="create slice for all reducers, redux toolkit">
       <created>1661674389587</created>
@@ -437,7 +457,14 @@
       <option name="project" value="LOCAL" />
       <updated>1674726054004</updated>
     </task>
-    <option name="localTasksCounter" value="37" />
+    <task id="LOCAL-00037" summary="fix error utils, refactor reducers handleServerNetworkError and handleServerAppError">
+      <created>1675170626003</created>
+      <option name="number" value="00037" />
+      <option name="presentableId" value="LOCAL-00037" />
+      <option name="project" value="LOCAL" />
+      <updated>1675170626003</updated>
+    </task>
+    <option name="localTasksCounter" value="38" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -455,7 +482,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="createAsyncThunk, refactor api types, Formik in Login page" />
     <MESSAGE value="refactor validation" />
     <MESSAGE value="refactor types" />
     <MESSAGE value="create createAsyncThunk + refactor tests" />
@@ -480,18 +506,7 @@
     <MESSAGE value="fix imports, api-keys" />
     <MESSAGE value="refactor stories" />
     <MESSAGE value="refactor styles" />
-    <option name="LAST_COMMIT_MESSAGE" value="refactor styles" />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="javascript">
-          <url>file://$PROJECT_DIR$/src/features/Todolist/todolists-reducer.ts</url>
-          <line>81</line>
-          <properties lambdaOrdinal="-1" />
-          <option name="timeStamp" value="2" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
+    <MESSAGE value="fix error utils, refactor reducers handleServerNetworkError and handleServerAppError" />
+    <option name="LAST_COMMIT_MESSAGE" value="fix error utils, refactor reducers handleServerNetworkError and handleServerAppError" />
   </component>
 </project>

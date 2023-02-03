@@ -36,7 +36,8 @@ export const AddItemForm = React.memo(({addItem, disabled = false}: addItemFormP
                 await addItem(title, {setError, setTitle})
                 setTitle('')
             } catch (error) {
-                setError('network error')
+                //setError('network error')
+                setTitle('')
             }
         } else {
             setError('error')

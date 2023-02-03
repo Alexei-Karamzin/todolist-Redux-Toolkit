@@ -5,8 +5,8 @@ import CheckCircleSharpIcon from "@mui/icons-material/CheckCircleSharp";
 import {EditableSpan} from "../../../component/EditableSpan/EditableSpan";
 import RestoreFromTrashSharpIcon from "@mui/icons-material/RestoreFromTrashSharp";
 import {TaskStatuses, TaskType} from "../../../api/tasks-api";
-import {useActions} from "../../../app/store";
 import {tasksActions} from "../index";
+import {useActions} from "../../../utils/redux-utils";
 
 type TaskPropsType = {
     task: TaskType
