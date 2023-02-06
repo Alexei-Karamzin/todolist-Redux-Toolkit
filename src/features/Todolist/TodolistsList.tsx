@@ -1,4 +1,4 @@
-import {AppRootStateType} from "../../app/store";
+import {AppRootStateType} from "../../utils/types";
 import {useSelector} from "react-redux";
 import {TodolistDomainType} from "./todolists-reducer";
 import React, {useEffect} from "react";

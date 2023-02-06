@@ -1,10 +1,10 @@
 import {FilterValueType} from "../../app/App";
 import {todolistsApi, TodolistType} from "../../api/todolists-api";
-import {appActions} from "../App";
+import {appActions} from "../Application";
 import {createAsyncThunk, createSlice, PayloadAction} from "@reduxjs/toolkit";
 import {handleServerAppError, handleServerNetworkError} from "../../utils/error-utils";
-import {ThunkErrorType} from "../../app/store";
-import {RequestStatusType} from "../App/app-reducer";
+import {ThunkErrorType} from "../../utils/types";
+import {RequestStatusType} from "../Application/application-reducer";
 
 const {setAppStatusAC} = appActions
 

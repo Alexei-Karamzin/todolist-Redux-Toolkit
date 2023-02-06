@@ -20,11 +20,10 @@ import {useSelector} from "react-redux";
 import {Login} from '../features/Auth';
 import {logout} from "../features/Auth/auth-reducer";
 import {authSelectors} from "../features/Auth";
-import {appSelectors} from "../features/App";
+import {appActions, appSelectors} from "../features/Application";
 import Brightness4Icon from '@mui/icons-material/Brightness4';
 import Brightness7Icon from '@mui/icons-material/Brightness7';
-import {useAppDispatch} from "../utils/redux-utils";
-import {asyncActions} from "../features/App/app-reducer";
+import {useActions, useAppDispatch} from "../utils/redux-utils";
 import {Route, Routes} from 'react-router-dom';
 
 export type FilterValueType = 'all' | 'completed' | 'active'
@@ -55,10 +54,11 @@ export function App({demo = false}: PropsType) {
     const isInitialized = useSelector(appSelectors.selectIsInitialized)
     const isLoggedIn = useSelector(authSelectors.selectIsLoggedIn)
     const dispatch = useAppDispatch()
+    //const {initializeApp} = useActions(asyncActions)
 
     useEffect(() => {
         if (!demo) {
-            dispatch(asyncActions.initializeApp())
+            dispatch(appActions.initializeApp())
         }
     }, [])
 
