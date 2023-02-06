@@ -1,7 +1,7 @@
 import {TaskStateType} from "../../app/App";
 import {TodolistDomainType} from "./todolists-reducer";
 import {v1} from "uuid";
-import {TaskPriority} from "../../api/tasks-api";
+import {TaskPriority} from "../../api/types";
 /*import {addTodolist, removeTodolist} from "./todolists-actions";
 
 test('property with todolistId should be added', () => {

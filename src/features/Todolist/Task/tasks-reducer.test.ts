@@ -1,7 +1,6 @@
 import {v1} from "uuid";
 import {TaskStateType} from "../../../app/App";
-import {TaskPriority, TaskStatuses} from "../../../api/tasks-api";
-import {TodolistType} from "../../../api/todolists-api";
+import {TaskPriority, TaskStatuses, TodolistType} from "../../../api/types";
 /*
 import {addTask, fetchTasks, removeTask, updateTask} from "./tasks-actions";
 import {fetchTodolists} from "../todolists-actions";

@@ -1,8 +1,8 @@
 import {setAppStatusAC} from "../Application/application-reducer";
-import {authApi, LoginParamsType} from "../../api/auth-api";
+import {authApi} from "../../api/auth-api";
 import {handleServerAppError, handleServerNetworkError} from "../../utils/error-utils";
 import {createAsyncThunk, createSlice, PayloadAction} from "@reduxjs/toolkit";
-import {FieldErrorType} from "../../api/todolists-api";
+import {FieldErrorType, LoginParamsType} from "../../api/types";
 import {AxiosError} from "axios";
 
 export const login = createAsyncThunk<undefined, LoginParamsType, {

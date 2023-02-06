@@ -1,10 +1,11 @@
 import {TaskStateType} from "../../../app/App";
 import {createAsyncThunk, createSlice} from "@reduxjs/toolkit";
 import {setAppStatusAC} from "../../Application/application-reducer";
-import {tasksApi, TaskType, UpdateTaskModelType} from "../../../api/tasks-api";
+import {tasksApi} from "../../../api/tasks-api";
 import {handleServerAppError, handleServerNetworkError} from "../../../utils/error-utils";
 import {AppRootStateType, ThunkErrorType} from "../../../utils/types";
 import {asyncActions as asyncTodolistsActions} from '../todolists-reducer'
+import {TaskType, UpdateTaskModelType} from "../../../api/types";
 
 const initialState: TaskStateType = {}
 

@@ -2,7 +2,7 @@ import React from 'react'
 import { Provider } from 'react-redux'
 import {applyMiddleware, combineReducers, createStore} from 'redux'
 import { v1 } from 'uuid'
-import {TaskPriority} from "../api/tasks-api";
+import {TaskPriority} from "../api/types";
 import {appReducer} from "../features/Application";
 import thunk from "redux-thunk";
 import {authReducer} from "../features/Auth";

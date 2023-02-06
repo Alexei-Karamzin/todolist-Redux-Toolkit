@@ -1,5 +1,5 @@
 import axios from "axios";
-import {ResponseType} from "./todolists-api";
+import {ResponseTodolistType} from "./types";
 import { LoginParamsType } from "./types";
 
 const settings = {
@@ -18,13 +18,13 @@ const instance = axios.create({
 
 export const authApi = {
     login(data: LoginParamsType) {
-        return instance.post<ResponseType<{userId?: number}>>('auth/login', data)
+        return instance.post<ResponseTodolistType<{userId?: number}>>('auth/login', data)
     },
     logout() {
-        return instance.delete<ResponseType<{userId?: number}>>('auth/login')
+        return instance.delete<ResponseTodolistType<{userId?: number}>>('auth/login')
     },
     me() {
-        return instance.get<ResponseType<{id: number, email: string, login: string}>>('auth/me')
+        return instance.get<ResponseTodolistType<{id: number, email: string, login: string}>>('auth/me')
     }
 }
 

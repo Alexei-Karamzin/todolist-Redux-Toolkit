@@ -4,7 +4,7 @@ import {ComponentStory, ComponentMeta} from '@storybook/react';
 import {action} from "@storybook/addon-actions";
 import {Task} from "./Task";
 import {v1} from "uuid";
-import {TaskPriority} from "../../../api/tasks-api";
+import {TaskPriority} from "../../../api/types";
 import {ReduxStoreProviderDecorator} from "../../../app/ReduxStoreProviderDecorator";
 
 export default {
