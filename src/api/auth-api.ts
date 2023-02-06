@@ -1,5 +1,6 @@
 import axios from "axios";
 import {ResponseType} from "./todolists-api";
+import { LoginParamsType } from "./types";
 
 const settings = {
     withCredentials: true,
@@ -12,13 +13,6 @@ const instance = axios.create({
     baseURL: 'https://social-network.samuraijs.com/api/1.1/',
     ...settings
 })
-
-export type LoginParamsType = {
-    email: string,
-    password: string,
-    rememberMe: boolean,
-    captcha?: string
-}
 
 // api
 
@@ -34,4 +28,3 @@ export const authApi = {
     }
 }
 
-// types

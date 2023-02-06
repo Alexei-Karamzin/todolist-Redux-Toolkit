@@ -5,7 +5,7 @@ import Delete from '@mui/icons-material/Delete';
 import IconButton from '@mui/material/IconButton';
 import {Button} from "@mui/material";
 import {Task} from "./Task/Task";
-import {TaskStatuses, TaskType} from "../../api/tasks-api";
+import {TaskStatuses, TaskType} from "../../api/types";
 import {TodolistDomainType} from "./todolists-reducer";
 import {tasksActions, todolistsActions} from "./index";
 import {FilterValueType} from "../../app/App";

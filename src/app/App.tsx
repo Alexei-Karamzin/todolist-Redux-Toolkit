@@ -12,18 +12,17 @@ import {
     Typography,
 } from '@mui/material';
 import MenuIcon from '@mui/icons-material/Menu';
-import {TaskType} from "../api/tasks-api";
+import {TaskType} from "../api/types";
 import {TodolistsList} from "../features/Todolist";
 import LinearProgress from '@mui/material/LinearProgress';
 import {ErrorSnackbar} from "../component/ErrorSnackbar/ErrorSnackbar";
 import {useSelector} from "react-redux";
-import {Login} from '../features/Auth';
-import {logout} from "../features/Auth/auth-reducer";
+import {authActions, Login} from '../features/Auth';
 import {authSelectors} from "../features/Auth";
 import {appActions, appSelectors} from "../features/Application";
 import Brightness4Icon from '@mui/icons-material/Brightness4';
 import Brightness7Icon from '@mui/icons-material/Brightness7';
-import {useActions, useAppDispatch} from "../utils/redux-utils";
+import {useActions} from "../utils/redux-utils";
 import {Route, Routes} from 'react-router-dom';
 
 export type FilterValueType = 'all' | 'completed' | 'active'
@@ -53,12 +52,14 @@ export function App({demo = false}: PropsType) {
     const status = useSelector(appSelectors.selectStatus)
     const isInitialized = useSelector(appSelectors.selectIsInitialized)
     const isLoggedIn = useSelector(authSelectors.selectIsLoggedIn)
-    const dispatch = useAppDispatch()
-    //const {initializeApp} = useActions(asyncActions)
+    //const dispatch = useAppDispatch()
+
+    const {initializeApp} = useActions(appActions)
+    const {logout} = useActions(authActions)
 
     useEffect(() => {
         if (!demo) {
-            dispatch(appActions.initializeApp())
+            initializeApp()
         }
     }, [])
 
@@ -69,7 +70,7 @@ export function App({demo = false}: PropsType) {
     }
 
     const logoutHandler = () => {
-        dispatch(logout())
+        logout()
     }
 
     const changeModHandler = () => {
