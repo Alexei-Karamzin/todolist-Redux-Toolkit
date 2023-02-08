@@ -1,37 +1,37 @@
 import {TaskStateType} from "../../../app/App";
 import {createAsyncThunk, createSlice} from "@reduxjs/toolkit";
-import {setAppStatusAC} from "../../Application/application-reducer";
 import {tasksApi} from "../../../api/tasks-api";
 import {handleServerAppError, handleServerNetworkError} from "../../../utils/error-utils";
 import {AppRootStateType, ThunkErrorType} from "../../../utils/types";
 import {asyncActions as asyncTodolistsActions} from '../todolists-reducer'
 import {TaskType, UpdateTaskModelType} from "../../../api/types";
+import { UpdateDomainTaskModelType } from "./type";
+import { appActions } from "../../CommonActions";
 
 const initialState: TaskStateType = {}
 
-const fetchTasks = createAsyncThunk('tasks/fetchTasks', async (todolistId: string, thunkAPI) => {
-    thunkAPI.dispatch(setAppStatusAC({status: 'loading'}))
+const fetchTasks = createAsyncThunk<{tasks: TaskType[], todolistId: string}, string, ThunkErrorType>
+('tasks/fetchTasks',async (todolistId: string, thunkAPI) => {
+    thunkAPI.dispatch(appActions.setAppStatus({status: 'loading'}))
     const res = await tasksApi.getTasks(todolistId)
     const tasks = res.data.items
-    thunkAPI.dispatch(setAppStatusAC({status: 'succeeded'}))
+    thunkAPI.dispatch(appActions.setAppStatus({status: 'succeeded'}))
     return {tasks, todolistId}
 })
-const removeTask = createAsyncThunk('tasks/removeTasks', async (param: { taskId: string, todolistId: string}, thunkAPI) => {
-    thunkAPI.dispatch(setAppStatusAC({status: 'loading'}))
+const removeTask = createAsyncThunk<{taskId: string, todolistId: string}, { taskId: string, todolistId: string}, ThunkErrorType>
+('tasks/removeTasks',async (param, thunkAPI) => {
+    thunkAPI.dispatch(appActions.setAppStatus({status: 'loading'}))
     const res = await tasksApi.deleteTask(param.todolistId, param.taskId)
-    thunkAPI.dispatch(setAppStatusAC({status: 'succeeded'}))
+    thunkAPI.dispatch(appActions.setAppStatus({status: 'succeeded'}))
     return {taskId: param.taskId, todolistId: param.todolistId}
 })
-const addTask = createAsyncThunk<
-    TaskType,
-    { title: string, todolistId: string },
-    ThunkErrorType
-    >('tasks/addTask', async (param, thunkAPI) => {
-    thunkAPI.dispatch(setAppStatusAC({status: 'loading'}))
+const addTask = createAsyncThunk<TaskType, { title: string, todolistId: string }, ThunkErrorType>
+('tasks/addTask',async (param, thunkAPI) => {
+    thunkAPI.dispatch(appActions.setAppStatus({status: 'loading'}))
     try {
         const res = await tasksApi.createTask(param.todolistId, param.title)
         if (res.data.resultCode === 0) {
-            thunkAPI.dispatch(setAppStatusAC({status: 'succeeded'}))
+            thunkAPI.dispatch(appActions.setAppStatus({status: 'succeeded'}))
             return res.data.data.item
         } else {
             handleServerAppError(res.data, thunkAPI.dispatch)
@@ -42,7 +42,8 @@ const addTask = createAsyncThunk<
         //rejectWithValue({errors: [err.message], fieldsErrors: undefined}
     }
 })
-const updateTask = createAsyncThunk('tasks/updateTask', async (param: { taskId: string, domainModel: UpdateDomainTaskModelType, todolistId: string }, {
+const updateTask = createAsyncThunk
+('tasks/updateTask',async (param: {taskId: string, domainModel: UpdateDomainTaskModelType, todolistId: string}, {
     dispatch,
     rejectWithValue,
     getState
@@ -71,7 +72,7 @@ const updateTask = createAsyncThunk('tasks/updateTask', async (param: { taskId: 
     try {
         if (res.data.resultCode === 0) {
             return param
-            dispatch(setAppStatusAC({status: 'succeeded'}))
+            dispatch(appActions.setAppStatus({status: 'succeeded'}))
         } else {
             handleServerAppError(res.data, dispatch)
             return rejectWithValue(null)
@@ -121,16 +122,3 @@ export const slice = createSlice({
         })
     }
 })
-
-//export const tasksReducer = slice.reducer
-
-// types
-
-export type UpdateDomainTaskModelType = {
-    title?: string
-    description?: string
-    status?: number
-    priority?: number
-    startDate?: string
-    deadline?: string
-}

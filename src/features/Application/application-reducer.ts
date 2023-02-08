@@ -1,19 +1,19 @@
 import {authApi} from "../../api/auth-api";
-import {setIsLoggedInAC} from "../Auth/auth-reducer";
-import {createAsyncThunk, createSlice, PayloadAction} from "@reduxjs/toolkit";
+import {authActions} from "../Auth";
+import {createAsyncThunk, createSlice} from "@reduxjs/toolkit";
+import {InitialStateType, RequestStatusType} from "./types";
+import {appActions} from "../CommonActions";
 
 export const initializeApp = createAsyncThunk('app/initializeApp', async (param, {dispatch}) => {
     const res = await authApi.me()
     if (res.data.resultCode === 0) {
-        dispatch(setIsLoggedInAC({value: true}))
+        dispatch(authActions.setIsLoggedIn({value: true}))
     } else {
 
     }
 })
 
-export const asyncActions = {
-    initializeApp
-}
+export const asyncActions = {initializeApp}
 
 export const slice = createSlice({
     name: 'app',
@@ -26,29 +26,25 @@ export const slice = createSlice({
         isInitialized: false
     } as InitialStateType,
     reducers: {
-        setAppErrorAC(state, action: PayloadAction<{ error: null | string }>) {
+        /*setAppError(state, action: PayloadAction<{ error: null | string }>) {
             state.error = action.payload.error
         },
-        setAppStatusAC(state, action: PayloadAction<{ status: RequestStatusType }>) {
+        setAppStatus(state, action: PayloadAction<{ status: RequestStatusType }>) {
             state.status = action.payload.status
-        }
+        }*/
     },
     extraReducers: builder => {
         builder.addCase(initializeApp.fulfilled, (state) => {
             state.isInitialized = true
         })
+        builder.addCase(appActions.setAppError, (state, action) => {
+            state.error = action.payload.error
+        })
+        builder.addCase(appActions.setAppStatus, (state, action) => {
+            state.status = action.payload.status
+        })
     }
 })
 
-export const {setAppStatusAC, setAppErrorAC} = slice.actions
 
-// types
-
-export type RequestStatusType = 'idle' | 'loading' | 'succeeded' | 'failed'
-export type SetAppStatusActionType = ReturnType<typeof setAppStatusAC>
-export type InitialStateType = {
-    status: RequestStatusType,
-    error: null | string,
-    isInitialized: boolean
-}
 

@@ -52,7 +52,6 @@ export function App({demo = false}: PropsType) {
     const status = useSelector(appSelectors.selectStatus)
     const isInitialized = useSelector(appSelectors.selectIsInitialized)
     const isLoggedIn = useSelector(authSelectors.selectIsLoggedIn)
-    //const dispatch = useAppDispatch()
 
     const {initializeApp} = useActions(appActions)
     const {logout} = useActions(authActions)

@@ -1,8 +1,4 @@
 import {v1} from "uuid";
-import {
-    changeTodolistEntityStatus,
-    changeTodolistFilter, TodolistDomainType,
-} from "./todolists-reducer";
 /*import {addTodolist, changeTodolistTitle, fetchTodolists, removeTodolist} from "./todolists-actions";
 
 let todolistId1: string

@@ -1,18 +1,18 @@
-import {setAppStatusAC} from "../Application/application-reducer";
 import {authApi} from "../../api/auth-api";
 import {handleServerAppError, handleServerNetworkError} from "../../utils/error-utils";
 import {createAsyncThunk, createSlice, PayloadAction} from "@reduxjs/toolkit";
 import {FieldErrorType, LoginParamsType} from "../../api/types";
 import {AxiosError} from "axios";
+import { appActions } from "../CommonActions";
 
 export const login = createAsyncThunk<undefined, LoginParamsType, {
     rejectValue: { errors: Array<string>, fieldsErrors?: Array<FieldErrorType> }
 }>('auth/login', async (param, {dispatch, rejectWithValue}) => {
-    dispatch(setAppStatusAC({status: 'loading'}))
+    dispatch(appActions.setAppStatus({status: 'loading'}))
     try {
         const res = await authApi.login(param)
         if (res.data.resultCode === 0) {
-            dispatch(setAppStatusAC({status: 'succeeded'}))
+            dispatch(appActions.setAppStatus({status: 'succeeded'}))
         } else {
             handleServerAppError(res.data, dispatch)
             return rejectWithValue({errors: res.data.messages, fieldsErrors: res.data.fieldsErrors})
@@ -25,11 +25,11 @@ export const login = createAsyncThunk<undefined, LoginParamsType, {
 })
 
 export const logout = createAsyncThunk('auth/logout', async (param, {dispatch, rejectWithValue}) => {
-    dispatch(setAppStatusAC({status: 'loading'}))
+    dispatch(appActions.setAppStatus({status: 'loading'}))
     try {
         const res = await authApi.logout()
         if (res.data.resultCode === 0) {
-            dispatch(setAppStatusAC({status: 'succeeded'}))
+            dispatch(appActions.setAppStatus({status: 'succeeded'}))
         } else {
             handleServerAppError(res.data, dispatch)
             return rejectWithValue({})
@@ -49,7 +49,7 @@ export const slice = createSlice({
     name: 'auth',
     initialState: {isLoggedIn: false},
     reducers: {
-        setIsLoggedInAC(state, action: PayloadAction<{ value: boolean }>) {
+        setIsLoggedIn(state, action: PayloadAction<{ value: boolean }>) {
             state.isLoggedIn = action.payload.value
         }
     },
@@ -62,9 +62,5 @@ export const slice = createSlice({
         })
     }
 })
-
-export const {setIsLoggedInAC} = slice.actions
-
-
 
 

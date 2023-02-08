@@ -1,6 +1,6 @@
 import {AppRootStateType} from "../../utils/types";
 import {useSelector} from "react-redux";
-import {TodolistDomainType} from "./todolists-reducer";
+import {TodolistDomainType} from "./types";
 import React, {useEffect} from "react";
 import {Grid} from "@mui/material";
 import {AddItemForm} from "../../component/AddItemForm/AddItemForm";

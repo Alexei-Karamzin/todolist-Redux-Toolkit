@@ -23,7 +23,6 @@ ReactDOM.render(
 // Learn more about service workers: https://bit.ly/CRA-PWA
 serviceWorker.unregister();
 
-
 if (process.env.NODE_ENV !== 'production' && module.hot) {
     /*module.hot.accept('./reducers', () => store.replaceReducer(rootReducer))*/
 }
