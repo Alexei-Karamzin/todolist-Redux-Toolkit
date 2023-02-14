@@ -1,7 +1,10 @@
 import {TaskStateType} from "../../app/App";
 import {v1} from "uuid";
 import {TaskPriority} from "../../api/types";
-/*import {addTodolist, removeTodolist} from "./todolists-actions";
+import {todolistsActions, tasksReducer, todolistsReducer} from "./index";
+import {TodolistDomainType} from "./types";
+
+const {addTodolist, removeTodolist} = todolistsActions
 
 test('property with todolistId should be added', () => {
     const startTaskState: TaskStateType = {}
@@ -63,4 +66,4 @@ test('property with todolistId should be deleted', () => {
 
     expect(keys.length).toBe(1)
     expect(endState['todolistId1']).toBeUndefined()
-})*/
+})

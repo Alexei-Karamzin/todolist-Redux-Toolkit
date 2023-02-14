@@ -1,5 +1,8 @@
 import {v1} from "uuid";
-/*import {addTodolist, changeTodolistTitle, fetchTodolists, removeTodolist} from "./todolists-actions";
+import {todolistsActions, todolistsReducer} from "./index";
+import {TodolistDomainType} from "./types";
+
+const {removeTodolist, addTodolist, changeTodolistTitle, changeTodolistFilter, changeTodolistEntityStatus, fetchTodolists} = todolistsActions
 
 let todolistId1: string
 let todolistId2: string
@@ -70,4 +73,4 @@ test('correct entity status should be changed', () => {
 
     expect(endState[0].entityStatus).toBe('idle')
     expect(endState[1].entityStatus).toBe('loading')
-})*/
+})
