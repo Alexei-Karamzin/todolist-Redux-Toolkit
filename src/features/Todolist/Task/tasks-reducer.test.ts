@@ -1,9 +1,12 @@
 import {v1} from "uuid";
 import {TaskStateType} from "../../../app/App";
 import {TaskPriority, TaskStatuses, TodolistType} from "../../../api/types";
-/*
-import {addTask, fetchTasks, removeTask, updateTask} from "./tasks-actions";
-import {fetchTodolists} from "../todolists-actions";
+import {tasksActions} from '../index'
+import {todolistsActions} from '../index'
+import {tasksReducer} from '../index'
+
+const {fetchTodolists} = todolistsActions
+const {addTask, updateTask, removeTask, fetchTasks} = tasksActions
 
 let todolistId1: string
 let todolistId2: string
@@ -122,4 +125,4 @@ test('tasks should be added for todolists', ()=>{
     const endState = tasksReducer(emptyTodolists, action)
 
     expect(endState[todolistId1].length).toBe(2)
-})*/
+})
