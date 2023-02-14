@@ -25,24 +25,18 @@ export const slice = createSlice({
         // true когда проинициализировалось приложение
         isInitialized: false
     } as InitialStateType,
-    reducers: {
-        /*setAppError(state, action: PayloadAction<{ error: null | string }>) {
-            state.error = action.payload.error
-        },
-        setAppStatus(state, action: PayloadAction<{ status: RequestStatusType }>) {
-            state.status = action.payload.status
-        }*/
-    },
+    reducers: {},
     extraReducers: builder => {
-        builder.addCase(initializeApp.fulfilled, (state) => {
-            state.isInitialized = true
-        })
-        builder.addCase(appActions.setAppError, (state, action) => {
-            state.error = action.payload.error
-        })
-        builder.addCase(appActions.setAppStatus, (state, action) => {
-            state.status = action.payload.status
-        })
+        builder
+            .addCase(initializeApp.fulfilled, (state) => {
+                state.isInitialized = true
+            })
+            .addCase(appActions.setAppError, (state, action) => {
+                state.error = action.payload.error
+            })
+            .addCase(appActions.setAppStatus, (state, action) => {
+                state.status = action.payload.status
+            })
     }
 })
 

@@ -3,7 +3,7 @@ import {handleServerAppError, handleServerNetworkError} from "../../utils/error-
 import {createAsyncThunk, createSlice, PayloadAction} from "@reduxjs/toolkit";
 import {FieldErrorType, LoginParamsType} from "../../api/types";
 import {AxiosError} from "axios";
-import { appActions } from "../CommonActions";
+import {appActions} from "../CommonActions";
 
 export const login = createAsyncThunk<undefined, LoginParamsType, {
     rejectValue: { errors: Array<string>, fieldsErrors?: Array<FieldErrorType> }
@@ -54,12 +54,13 @@ export const slice = createSlice({
         }
     },
     extraReducers: builder => {
-        builder.addCase(login.fulfilled, (state) => {
-            state.isLoggedIn = true
-        })
-        builder.addCase(logout.fulfilled, (state) => {
-            state.isLoggedIn = false
-        })
+        builder
+            .addCase(login.fulfilled, (state) => {
+                state.isLoggedIn = true
+            })
+            .addCase(logout.fulfilled, (state) => {
+                state.isLoggedIn = false
+            })
     }
 })
 
