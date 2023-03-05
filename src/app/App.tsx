@@ -79,6 +79,7 @@ export function App({demo = false}: PropsType) {
     return (
         <ThemeProvider theme={darkMode ? darkTheme : lightTheme}>
             <Paper style={{height: "100vh"}}>
+                <div>test</div>
                 <div className="App">
                     <ErrorSnackbar/>
                     <AppBar position="static">
